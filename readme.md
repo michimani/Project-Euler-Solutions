@@ -5,4 +5,13 @@ My solutions for [Project Euler](https://projecteuler.net/). ([in Japanese](http
 
 Language
 ---
-- Python 3.7
+### Python
+- runtime Python 3.7.x
+- create new solution script
+  ```
+  $ python python/new_solution.py PROBLEM_NO
+  ```
+  Replase `PROBLEM_NO` to the problem number.
+
+
+  
