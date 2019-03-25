@@ -71,19 +71,23 @@ def compute():
 
                 if down is True:
                     product_list.append(
-                        int(GRID[r][c]) * int(GRID[r + 1][c]) * int(GRID[r + 2][c]) * int(GRID[r + 3][c]))
+                        int(GRID[r][c]) * int(GRID[r + 1][c])
+                        * int(GRID[r + 2][c]) * int(GRID[r + 3][c]))
 
                 if right is True:
                     product_list.append(
-                        int(GRID[r][c]) * int(GRID[r][c + 1]) * int(GRID[r][c + 2]) * int(GRID[r][c + 3]))
+                        int(GRID[r][c]) * int(GRID[r][c + 1])
+                        * int(GRID[r][c + 2]) * int(GRID[r][c + 3]))
 
                 if down is True and right is True:
-                    product_list.append(int(
-                        GRID[r][c]) * int(GRID[r + 1][c + 1]) * int(GRID[r + 2][c + 2]) * int(GRID[r + 3][c + 3]))
+                    product_list.append(
+                        int(GRID[r][c]) * int(GRID[r + 1][c + 1])
+                        * int(GRID[r + 2][c + 2]) * int(GRID[r + 3][c + 3]))
 
                 if down is True and left is True:
-                    product_list.append(int(
-                        GRID[r][c]) * int(GRID[r + 1][c - 1]) * int(GRID[r + 2][c - 2]) * int(GRID[r + 3][c - 3]))
+                    product_list.append(
+                        int(GRID[r][c]) * int(GRID[r + 1][c - 1])
+                        * int(GRID[r + 2][c - 2]) * int(GRID[r + 3][c - 3]))
     except Exception:
         print(r, c)
 
