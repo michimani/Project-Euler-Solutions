@@ -12,7 +12,7 @@ Languages
 - create new solution script
 
   ```
-  $ python new_python_solution.py {PROBLEM_NO}
+  $ python python/new_solution.py {PROBLEM_NO}
   ```
 
 ### Go
@@ -21,5 +21,5 @@ Languages
 - create new solution script
 
   ```zsh
-  $ go run new_go_solution.go {PROBLEM_NO}
+  $ go run go/new_solution.go {PROBLEM_NO}
   ```
