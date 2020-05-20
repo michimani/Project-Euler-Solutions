@@ -23,8 +23,8 @@ package main
 import "fmt"
 
 // Compute is function to solve the problem.
-func Compute() string {
-	var answer string
+func Compute() int {
+	var answer int
 
 	return answer
 }

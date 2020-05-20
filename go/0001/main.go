@@ -8,20 +8,16 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 // Compute is function to solve the problem.
-func Compute() string {
-	var answer string
-	var answerInt int = 0
+func Compute() int {
+	var answer int = 0
 	for num := 1; num < 1000; num++ {
 		if num%3 == 0 || num%5 == 0 {
-			answerInt = answerInt + num
+			answer = answer + num
 		}
 	}
-
-	answer = strconv.Itoa(answerInt)
 
 	return answer
 }
