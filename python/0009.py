@@ -20,9 +20,9 @@ def compute():
             if is_nature_sqrt(a_sq) is True:
                 b_sq = c_sq - a_sq
                 if is_nature_sqrt(b_sq) is True:
-                    a = round(a_sq ** (1/2))
-                    b = round(b_sq ** (1/2))
-                    c = round(c_sq ** (1/2))
+                    a = round(a_sq ** (1 / 2))
+                    b = round(b_sq ** (1 / 2))
+                    c = round(c_sq ** (1 / 2))
                     if a + b + c == 1000:
                         is_ok = True
                         break
@@ -35,7 +35,7 @@ def compute():
 
 def is_nature_sqrt(num):
     if num > 0:
-        return num == math.floor(num**(1/2))**2
+        return num == math.floor(num**(1 / 2))**2
     else:
         return False
 

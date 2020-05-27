@@ -13,7 +13,7 @@ def compute():
     num = 3
     while num <= UNTIL:
         is_prime = True
-        for dividor in range(3, math.floor(num ** (1/2)) + 1, 2):
+        for dividor in range(3, math.floor(num ** (1 / 2)) + 1, 2):
             if num % dividor == 0:
                 is_prime = False
                 break
