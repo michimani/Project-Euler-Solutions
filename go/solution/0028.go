@@ -11,7 +11,7 @@ import (
 	"math"
 )
 
-// compute is function to solve the problem.
+// Solve0028 is function to solve the problem.
 func Solve0028() {
 	answer := 1
 	size := 1001

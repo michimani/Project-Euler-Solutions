@@ -20,6 +20,7 @@ var solvedProblem map[int]func() = map[int]func(){
 	25: Solve0025,
 	26: Solve0026,
 	28: Solve0028,
+	29: Solve0029,
 }
 
 func Solve(problemNo int) error {

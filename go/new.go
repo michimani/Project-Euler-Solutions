@@ -19,7 +19,7 @@ package solution
 
 import "fmt"
 
-// compute is function to solve the problem.
+// Solve%04d is function to solve the problem.
 func Solve%04d() {
 	var answer int
 
@@ -36,6 +36,6 @@ func Solve%04d() {
 	defer file.Close()
 
 	writer := bufio.NewWriter(file)
-	writer.Write([]byte(fmt.Sprintf(scriptTemplate, problemNo, problemNo, problemNo)))
+	writer.Write([]byte(fmt.Sprintf(scriptTemplate, problemNo, problemNo, problemNo, problemNo)))
 	writer.Flush()
 }
