@@ -26,7 +26,7 @@ func Solve0007() {
 
 		}
 
-		if isPrime == true {
+		if isPrime {
 			primes = append(primes, num)
 		}
 

@@ -12,7 +12,7 @@ import (
 	"strconv"
 )
 
-// Solve is function to solve the problem.
+// Solve0016 is function to solve the problem.
 func Solve0016() {
 	var answer int
 	num := big.NewInt(1)

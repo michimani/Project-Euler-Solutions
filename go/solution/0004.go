@@ -8,8 +8,8 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
+
+	"github.com/michimani/project-euler-go/util"
 )
 
 // Solve0004 is function to solve the problem.
@@ -20,8 +20,13 @@ func Solve0004() {
 	for a := 100; a < 1000; a++ {
 		for b := 100; b < 1000; b++ {
 			times := a * b
-			isP := isPalindrome(times)
-			if isP == true {
+			isP, err := util.IsPalindrome(times)
+			if err != nil {
+				fmt.Println(err.Error())
+				return
+			}
+
+			if isP {
 				palindomes = append(palindomes, times)
 			}
 		}
@@ -37,22 +42,4 @@ func Solve0004() {
 	answer = palindomeTmp
 
 	fmt.Println(answer)
-}
-
-// isPalindrome is function to check a number is palindrome.
-func isPalindrome(num int) bool {
-	var isP bool = false
-
-	numList := strings.Split(strconv.Itoa(num), "")
-	var reverse []string = []string{}
-	for n := len(numList) - 1; n >= 0; n-- {
-		reverse = append(reverse, numList[n])
-	}
-	reverseNum, _ := strconv.Atoi(strings.Join(reverse, ""))
-
-	if reverseNum == num {
-		isP = true
-	}
-
-	return isP
 }

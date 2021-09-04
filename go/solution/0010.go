@@ -24,7 +24,7 @@ func Solve0010() {
 			}
 		}
 
-		if isPrime == true {
+		if isPrime {
 			primes = append(primes, num)
 			answer = answer + num
 		}

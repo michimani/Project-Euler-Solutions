@@ -14,7 +14,7 @@ import (
 func Solve0003() {
 	var answer int
 	var primesMap map[int]int = map[int]int{}
-	var isPrime bool = true
+	var isPrime bool
 
 	var targetNumber int = 600851475143
 	var targetNumberDiv int = targetNumber
@@ -28,7 +28,7 @@ func Solve0003() {
 			}
 		}
 
-		if isPrime == true {
+		if isPrime {
 			primesMap[num] = num
 
 			for targetNumberDiv%num == 0 {

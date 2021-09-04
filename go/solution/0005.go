@@ -16,8 +16,7 @@ func Solve0005() {
 	var primesMap map[int]int = map[int]int{} // [prime]index
 	var primeIndex int
 	var numForDiv int
-	var isPrime bool = true
-
+	var isPrime bool
 	var max int = 20
 
 	for num := 2; num <= max; num++ {
@@ -29,11 +28,10 @@ func Solve0005() {
 			}
 		}
 
-		if isPrime == true {
+		if isPrime {
 			primesMap[num] = 1
 		} else {
 			numForDiv = num
-
 			for primeTmp, index := range primesMap {
 				primeIndex = 0
 				for numForDiv%primeTmp == 0 {
