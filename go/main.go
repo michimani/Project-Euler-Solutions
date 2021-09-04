@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"os"
+
+	"github.com/michimani/project-euler-go/solution"
 )
 
 func usage() {
@@ -47,7 +49,10 @@ func run() int {
 	case "new":
 		createNewSolutionScript(*problemNo)
 	case "solve":
-		solveProblem(*problemNo)
+		err := solution.Solve(*problemNo)
+		if err != nil {
+			fmt.Println(err.Error())
+		}
 	}
 
 	return 0
