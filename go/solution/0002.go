@@ -4,14 +4,14 @@
 //
 // https://projecteuler.net/problem=2
 //
-package main
+package solution
 
 import (
 	"fmt"
 )
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0002 is function to solve the problem.
+func Solve0002() {
 	var answer int = 2
 	var base1 int = 1
 	var base2 int = 2
@@ -28,9 +28,5 @@ func Compute() int {
 		base2 = addition
 	}
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

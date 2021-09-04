@@ -1,20 +1,21 @@
 //
-// Solution for Project Euler problem 10
+// Solution for Project Euler problem 7
 // Copyright michimani All rights reserved.
 //
-// https://projecteuler.net/problem=10
+// https://projecteuler.net/problem=7
 //
-package main
+package solution
 
 import "fmt"
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0007 is function to solve the problem.
+func Solve0007() {
 	var answer int
 	var primes []int = []int{}
 	var isPrime bool = true
+	var num int = 2
 
-	for num := 2; num < 2000000; num++ {
+	for len(primes) < 10002 {
 		isPrime = true
 
 		for _, prime := range primes {
@@ -22,17 +23,16 @@ func Compute() int {
 				isPrime = false
 				break
 			}
+
 		}
 
 		if isPrime == true {
 			primes = append(primes, num)
-			answer = answer + num
 		}
+
+		num++
 	}
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	answer = primes[10000]
+	fmt.Println(answer)
 }

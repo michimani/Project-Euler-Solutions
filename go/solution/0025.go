@@ -4,15 +4,15 @@
 //
 // https://projecteuler.net/problem=25
 //
-package main
+package solution
 
 import (
 	"fmt"
 	"math/big"
 )
 
-// Compute is function to solve the problem.
-func Compute() string {
+// Solve0025 is function to solve the problem.
+func Solve0025() {
 	var answer string
 	seqNo := big.NewInt(2)
 	prepre := big.NewInt(1)
@@ -28,9 +28,5 @@ func Compute() string {
 
 	answer = seqNo.String()
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

@@ -4,14 +4,14 @@
 //
 // https://projecteuler.net/problem=3
 //
-package main
+package solution
 
 import (
 	"fmt"
 )
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0003 is function to solve the problem.
+func Solve0003() {
 	var answer int
 	var primesMap map[int]int = map[int]int{}
 	var isPrime bool = true
@@ -43,9 +43,5 @@ func Compute() int {
 
 	}
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

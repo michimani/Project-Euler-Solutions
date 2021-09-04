@@ -4,7 +4,7 @@
 //
 // https://projecteuler.net/problem=8
 //
-package main
+package solution
 
 import (
 	"fmt"
@@ -12,8 +12,8 @@ import (
 	"strings"
 )
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0008 is function to solve the problem.
+func Solve0008() {
 	var answer int
 	var product int
 	var times int
@@ -54,9 +54,5 @@ func Compute() int {
 		}
 	}
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

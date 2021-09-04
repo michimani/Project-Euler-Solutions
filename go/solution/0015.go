@@ -4,15 +4,15 @@
 //
 // https://projecteuler.net/problem=15
 //
-package main
+package solution
 
 import (
 	"fmt"
 	"math/big"
 )
 
-// Compute is function to solve the problem.
-func Compute() *big.Int {
+// Solve0015 is function to solve the problem.
+func Solve0015() {
 	var answer *big.Int
 	var up int = 20
 	var down int = 20
@@ -29,9 +29,5 @@ func Compute() *big.Int {
 
 	answer = new(big.Int).Div(nume, deno)
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

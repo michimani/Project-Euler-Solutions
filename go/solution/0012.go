@@ -4,29 +4,29 @@
 //
 // https://projecteuler.net/problem=12
 //
-package main
+package solution
 
 import "fmt"
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0012 is function to solve the problem.
+func Solve0012() {
 	var answer int
 	var tri int = 1
 
 	for n := 2; true; n++ {
 		tri = tri + n
-		divisors := GetDivisors(tri)
+		divisors := getDivisors(tri)
 		if len(divisors) > 500 {
 			answer = tri
 			break
 		}
 	}
 
-	return answer
+	fmt.Println(answer)
 }
 
-// GetDivisors is function to get list of divisors of the number.
-func GetDivisors(num int) []int {
+// getDivisors is function to get list of divisors of the number.
+func getDivisors(num int) []int {
 	var divisors []int = []int{}
 	var quot int
 
@@ -43,8 +43,4 @@ func GetDivisors(num int) []int {
 	}
 
 	return divisors
-}
-
-func main() {
-	fmt.Println(Compute())
 }

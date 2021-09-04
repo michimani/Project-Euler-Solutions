@@ -17,7 +17,7 @@ Languages
 
 ### Go
 
-- runtime Go 1.14.x
+- runtime Go 1.17.x
 - create new solution script
 
   ```zsh

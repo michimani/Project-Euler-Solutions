@@ -4,7 +4,7 @@
 //
 // https://projecteuler.net/problem=13
 //
-package main
+package solution
 
 import (
 	"fmt"
@@ -114,8 +114,8 @@ var bigNumStrList []string = []string{
 	"53503534226472524250874054075591789781264330331690",
 }
 
-// Compute is function to solve the problem.
-func Compute() string {
+// Solve0013 is function to solve the problem.
+func Solve0013() {
 	var answer string
 	sum := big.NewInt(0)
 
@@ -127,9 +127,5 @@ func Compute() string {
 	sumStr := sum.String()
 	answer = sumStr[0:10]
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

@@ -4,7 +4,7 @@
 //
 // https://projecteuler.net/problem=26
 //
-package main
+package solution
 
 import (
 	"fmt"
@@ -13,8 +13,8 @@ import (
 
 var limitNum = 1000
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0026 is function to solve the problem.
+func Solve0026() {
 	var answer int
 	var tmpLength int = 0
 
@@ -26,7 +26,7 @@ func Compute() int {
 		}
 	}
 
-	return answer
+	fmt.Println(answer)
 }
 
 // GetRepeatingPart is function to get repeating part of reciprocal of nature number.
@@ -67,8 +67,4 @@ func GetRepeatingPart(natureNum int) string {
 		repeatPart = repeatPart + disits[idx]
 	}
 	return repeatPart
-}
-
-func main() {
-	fmt.Println(Compute())
 }

@@ -4,7 +4,7 @@
 //
 // https://projecteuler.net/problem=16
 //
-package main
+package solution
 
 import (
 	"fmt"
@@ -12,8 +12,8 @@ import (
 	"strconv"
 )
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve is function to solve the problem.
+func Solve0016() {
 	var answer int
 	num := big.NewInt(1)
 	for n := 0; n < 1000; n++ {
@@ -25,9 +25,5 @@ func Compute() int {
 		add, _ := strconv.Atoi(numStr[s : s+1])
 		answer = answer + add
 	}
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

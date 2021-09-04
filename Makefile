@@ -6,4 +6,4 @@ new-python:
 	python python/new_solution.py ${NO}
 
 new-go:
-	go run go/new_solution.go ${NO}
+	cd go && go run . -c new -p ${NO}

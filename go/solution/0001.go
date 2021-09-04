@@ -4,14 +4,14 @@
 //
 // https://projecteuler.net/problem=1
 //
-package main
+package solution
 
 import (
 	"fmt"
 )
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0001 is function to solve the problem.
+func Solve0001() {
 	var answer int = 0
 	for num := 1; num < 1000; num++ {
 		if num%3 == 0 || num%5 == 0 {
@@ -19,9 +19,5 @@ func Compute() int {
 		}
 	}
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

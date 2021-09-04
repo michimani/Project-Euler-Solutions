@@ -4,12 +4,12 @@
 //
 // https://projecteuler.net/problem=6
 //
-package main
+package solution
 
 import "fmt"
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0006 is function to solve the problem.
+func Solve0006() {
 	var answer int
 	var max = 100
 
@@ -21,9 +21,5 @@ func Compute() int {
 		}
 	}
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }

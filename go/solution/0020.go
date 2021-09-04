@@ -4,7 +4,7 @@
 //
 // https://projecteuler.net/problem=20
 //
-package main
+package solution
 
 import (
 	"fmt"
@@ -12,8 +12,8 @@ import (
 	"strconv"
 )
 
-// Compute is function to solve the problem.
-func Compute() int {
+// Solve0020 is function to solve the problem.
+func Solve0020() {
 	var answer int
 	num := big.NewInt(1)
 
@@ -27,9 +27,5 @@ func Compute() int {
 		answer = answer + mInt
 	}
 
-	return answer
-}
-
-func main() {
-	fmt.Println(Compute())
+	fmt.Println(answer)
 }
