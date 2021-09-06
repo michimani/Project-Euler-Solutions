@@ -8,7 +8,7 @@ Languages
 
 ### Python
 
-- runtime Python 3.7.x
+- runtime Python 3.x
 - create new solution script
 
   ```
@@ -17,7 +17,7 @@ Languages
 
 ### Go
 
-- runtime Go 1.17.x
+- runtime Go 1.17
 - create new solution script
 
   ```zsh
