@@ -16,6 +16,7 @@ var solvedProblem map[int]func() = map[int]func(){
 	11: Solve0011,
 	12: Solve0012,
 	13: Solve0013,
+	14: Solve0014,
 	15: Solve0015,
 	16: Solve0016,
 	20: Solve0020,
