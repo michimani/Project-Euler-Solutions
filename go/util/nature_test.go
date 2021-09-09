@@ -53,3 +53,49 @@ func TestIsSquareOfNatureNumber(t *testing.T) {
 		})
 	}
 }
+
+func TestDivisors(t *testing.T) {
+	cases := []struct {
+		name   string
+		num    int
+		expect []int
+	}{
+		{
+			name:   "ok 1",
+			num:    1,
+			expect: []int{1},
+		},
+		{
+			name:   "ok 2",
+			num:    12,
+			expect: []int{1, 2, 3, 4, 6, 12},
+		},
+		{
+			name:   "ng 1",
+			num:    0,
+			expect: []int{},
+		},
+		{
+			name:   "ng 2",
+			num:    -100,
+			expect: []int{},
+		},
+	}
+
+	for _, c := range cases {
+		t.Run(c.name, func(tt *testing.T) {
+			divs := util.Divisors(c.num)
+			assert.Equal(tt, len(c.expect), len(divs))
+			for _, e := range c.expect {
+				exists := false
+				for _, d := range divs {
+					if e == d {
+						exists = true
+						break
+					}
+				}
+				assert.True(tt, exists)
+			}
+		})
+	}
+}
