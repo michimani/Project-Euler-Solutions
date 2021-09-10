@@ -64,3 +64,16 @@ func ProperDivisors(num int) []int {
 
 	return propDivisors
 }
+
+func Factorial(num int) uint64 {
+	if num < 0 {
+		return 0
+	}
+
+	var a uint64 = 1
+	for n := num; n > 0; n-- {
+		a = a * uint64(n)
+	}
+
+	return a
+}

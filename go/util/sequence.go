@@ -1,6 +1,7 @@
 package util
 
 import (
+	"errors"
 	"strconv"
 	"strings"
 )
@@ -28,4 +29,17 @@ func IsPalindrome(num int) (bool, error) {
 	}
 
 	return isP, nil
+}
+
+func SliceToNumber(nums []int) (int, error) {
+	numStrs := []string{}
+	for _, n := range nums {
+		if n < 0 {
+			return 0, errors.New("invalid number")
+		}
+		numStrs = append(numStrs, strconv.Itoa(n))
+	}
+	numStr := strings.Join(numStrs, "")
+
+	return strconv.Atoi(numStr)
 }

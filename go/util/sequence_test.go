@@ -66,3 +66,57 @@ func TestIsPalindrome(t *testing.T) {
 		})
 	}
 }
+
+func TestSliceToNumber(t *testing.T) {
+	cases := []struct {
+		name    string
+		nums    []int
+		expect  int
+		wantErr bool
+	}{
+		{
+			name:    "ok 1",
+			nums:    []int{1},
+			expect:  1,
+			wantErr: false,
+		},
+		{
+			name:    "ok 2",
+			nums:    []int{1, 2, 3, 4},
+			expect:  1234,
+			wantErr: false,
+		},
+		{
+			name:    "ok 3",
+			nums:    []int{0, 0, 2, 3},
+			expect:  23,
+			wantErr: false,
+		},
+		{
+			name:    "ng 1",
+			nums:    []int{-1},
+			expect:  0,
+			wantErr: true,
+		},
+		{
+			name:    "ng 2",
+			nums:    []int{1, 2, 3, -4},
+			expect:  0,
+			wantErr: true,
+		},
+	}
+
+	for _, c := range cases {
+		t.Run(c.name, func(tt *testing.T) {
+			num, err := util.SliceToNumber(c.nums)
+
+			if c.wantErr {
+				assert.Error(tt, err)
+				return
+			}
+
+			assert.NoError(tt, err)
+			assert.Equal(tt, c.expect, num)
+		})
+	}
+}

@@ -160,3 +160,44 @@ func TestPropDivisors(t *testing.T) {
 		})
 	}
 }
+
+func TestFactorial(t *testing.T) {
+	cases := []struct {
+		name   string
+		num    int
+		expect uint64
+	}{
+		{
+			name:   "ok 1",
+			num:    0,
+			expect: 1,
+		},
+		{
+			name:   "ok 2",
+			num:    1,
+			expect: 1,
+		},
+		{
+			name:   "ok 3",
+			num:    3,
+			expect: 6,
+		},
+		{
+			name:   "ok 4",
+			num:    8,
+			expect: 40320,
+		},
+		{
+			name:   "ng 1",
+			num:    -1,
+			expect: 0,
+		},
+	}
+
+	for _, c := range cases {
+		t.Run(c.name, func(tt *testing.T) {
+			f := util.Factorial(c.num)
+			assert.Equal(tt, c.expect, f)
+		})
+	}
+}
