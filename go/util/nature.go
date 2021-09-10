@@ -24,14 +24,43 @@ func Divisors(num int) []int {
 	for n := 1; n < num; n++ {
 		if num%n == 0 {
 			quot = num / n
-			if quot <= n {
+			if quot < n {
 				break
 			}
 
 			divisors = append(divisors, n)
-			divisors = append(divisors, quot)
+			if quot != n {
+				divisors = append(divisors, quot)
+			}
 		}
 	}
 
 	return divisors
+}
+
+// ProperDivisors returns prop divisors of the number.
+func ProperDivisors(num int) []int {
+	if num <= 1 {
+		return []int{}
+	}
+
+	var propDivisors []int = []int{}
+	var quot int
+	for n := 1; n < num; n++ {
+		if num%n == 0 {
+			quot = num / n
+			if quot < n {
+				break
+			}
+
+			if n != num {
+				propDivisors = append(propDivisors, n)
+			}
+			if quot != n && quot != num {
+				propDivisors = append(propDivisors, quot)
+			}
+		}
+	}
+
+	return propDivisors
 }
