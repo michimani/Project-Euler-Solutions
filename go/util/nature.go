@@ -77,3 +77,24 @@ func Factorial(num int) uint64 {
 
 	return a
 }
+
+func IsPrime(num int, chekced map[int]struct{}) bool {
+	if num <= 1 {
+		return false
+	}
+
+	isPrime := true
+
+	if _, ok := chekced[num]; ok {
+		return true
+	}
+
+	for d := 2; d < num; d++ {
+		if num%d == 0 {
+			isPrime = false
+			break
+		}
+	}
+
+	return isPrime
+}

@@ -201,3 +201,39 @@ func TestFactorial(t *testing.T) {
 		})
 	}
 }
+
+func TestIsPrime(t *testing.T) {
+	cases := []struct {
+		name   string
+		num    int
+		expect bool
+	}{
+		{
+			name:   "prime 1",
+			num:    5,
+			expect: true,
+		},
+		{
+			name:   "prime 2",
+			num:    13331,
+			expect: true,
+		},
+		{
+			name:   "not prime 1",
+			num:    6,
+			expect: false,
+		},
+		{
+			name:   "not ptime 2",
+			num:    1,
+			expect: false,
+		},
+	}
+
+	for _, c := range cases {
+		t.Run(c.name, func(tt *testing.T) {
+			f := util.IsPrime(c.num, map[int]struct{}{})
+			assert.Equal(tt, c.expect, f)
+		})
+	}
+}
