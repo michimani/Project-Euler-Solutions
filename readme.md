@@ -11,8 +11,8 @@ Languages
 - runtime Python 3.x
 - create new solution script
 
-  ```
-  $ NO=1 make new-python
+  ```bash
+  NO=1 make new-python
   ```
 
 ### Go
@@ -20,6 +20,15 @@ Languages
 - runtime Go 1.17
 - create new solution script
 
-  ```zsh
-  $ NO=1 make new-go
+  ```bash
+  NO=1 make new-go
+  ```
+  
+### Rust
+
+- runtime Rust 1.56.1 or higher
+- create new solution script
+
+  ```bash
+  NO=1 make new-rust
   ```

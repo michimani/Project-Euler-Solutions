@@ -7,3 +7,6 @@ new-python:
 
 new-go:
 	cd go && go run . -c new -p ${NO}
+
+new-rust:
+	cd rust && cargo run --bin new ${NO}
