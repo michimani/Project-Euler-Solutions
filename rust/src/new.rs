@@ -14,8 +14,8 @@ fn main() {
 fn create_new_solution(no: usize) {
   let file_path = format!("src/solutions/s{:>04}.rs", no);
   let mut file = File::create(file_path).unwrap();
-  let tmpl = format!("
-  use proconio::input;
+  let tmpl = format!(
+    "use proconio::input;
 
   // Solution for Project Euler problem {}
   // Copyright michimani All rights reserved.
@@ -26,11 +26,13 @@ fn create_new_solution(no: usize) {
       n: usize,
     }}
 
-    let mut sum = 0;
+    let mut answer = 0;
 
-    println!(\"answer is {{}}\", sum);
+    println!(\"answer is {{}}\", answer);
   }}
-  ", no, no);
+  ",
+    no, no
+  );
 
   file.write_all(tmpl.as_bytes()).unwrap();
 }
@@ -38,8 +40,6 @@ fn create_new_solution(no: usize) {
 fn update_mod(no: usize) {
   let new_line = format!("pub mod s{:>04};\n", no);
   let mod_path = "src/solutions/mod.rs";
-  let mut mod_file = OpenOptions::new()
-    .append(true)
-    .open(mod_path).unwrap();
+  let mut mod_file = OpenOptions::new().append(true).open(mod_path).unwrap();
   mod_file.write_all(new_line.as_bytes()).unwrap();
 }

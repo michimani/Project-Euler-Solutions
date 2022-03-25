@@ -9,9 +9,9 @@ fn main() {
 }
 
 fn solve(no: usize) {
-    if no == 1 {
-        solutions::s0001::solve();
-    } else {
-        println!("solution {} is not found.", no)
+    match no {
+        1 => solutions::s0001::solve(),
+        2 => solutions::s0002::solve(),
+        _ => println!("solution {} is not found.", no),
     }
 }
