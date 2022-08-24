@@ -12,6 +12,8 @@ fn solve(no: usize) {
     match no {
         1 => solutions::s0001::solve(),
         2 => solutions::s0002::solve(),
+        3 => solutions::s0003::solve(),
+
         _ => println!("solution {} is not found.", no),
     }
 }
