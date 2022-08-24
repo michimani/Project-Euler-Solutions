@@ -15,11 +15,9 @@ pub fn solve() {
   let mut div = 1; // divisor
   let mut primes: HashMap<usize, bool> = HashMap::new(); // prime numbers
   let mut answer_tmp = 0;
-  let mut loop_count = 0;
 
   let answer = loop {
     div = div + 1;
-    loop_count = loop_count + 1;
     if div > 2 && div % 2 == 0 {
       continue;
     }
@@ -43,7 +41,7 @@ pub fn solve() {
       answer_tmp = div;
     }
 
-    if div_n <= 1 || div_n < div {
+    if div_n < div {
       break answer_tmp;
     }
 
@@ -53,5 +51,4 @@ pub fn solve() {
   };
 
   println!("answer is {}", answer);
-  println!("loop count is {}", loop_count);
 }
