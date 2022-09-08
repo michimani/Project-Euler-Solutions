@@ -22,6 +22,8 @@ fn create_new_solution(no: usize) {
   //
   // https://projecteuler.net/problem={}
   pub fn solve() {{
+    let org = 0;
+    println!(\"(original: {{}})\", org);
     input!{{
       n: usize,
     }}
