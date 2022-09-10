@@ -1,3 +1,5 @@
+use proconio::input;
+use std::time::Instant;
 use std::collections::HashMap;
 
 // Solution for Project Euler problem 5
@@ -5,11 +7,19 @@ use std::collections::HashMap;
 //
 // https://projecteuler.net/problem=5
 pub fn solve() {
+  let org: usize = 20;
+  println!("(original: {})", org);
+  input! {
+    n: usize,
+  }
+
+  let start = Instant::now();
+
   let mut answer = 1;
 
   let mut primes: Vec<usize> = Vec::new();
   let mut primes_count_map: HashMap<usize, usize> = HashMap::new();
-  for i in 2..21 {
+  for i in 2..(n+1) {
     let mut is_prime = true;
     for p in (&primes).into_iter() {
       if i % p == 0 {
@@ -38,11 +48,17 @@ pub fn solve() {
   }
 
   for (p, c) in primes_count_map.into_iter() {
-    println!("{}, {}", p, c);
     for _ in 0..c {
       answer = answer * p;
     }
   }
 
   println!("answer is {}", answer);
+
+  let end = start.elapsed();
+  println!(
+    "\nIt took {}.{:03} seconds.",
+    end.as_secs(),
+    end.subsec_nanos() / 1_000_000
+  );
 }

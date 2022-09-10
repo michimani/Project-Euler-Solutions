@@ -1,15 +1,19 @@
 use proconio::input;
 use std::collections::HashMap;
+use std::time::Instant;
 
 // Solution for Project Euler problem 3
 // Copyright michimani All rights reserved.
 //
 // https://projecteuler.net/problem=3
 pub fn solve() {
-  // default: n = 600851475143
+  let org: usize = 600851475143;
+  println!("(original: {})", org);
   input! {
     n: usize,
   }
+
+  let start = Instant::now();
 
   let mut div_n = n;
   let mut div = 1; // divisor
@@ -51,4 +55,11 @@ pub fn solve() {
   };
 
   println!("answer is {}", answer);
+
+  let end = start.elapsed();
+  println!(
+    "\nIt took {}.{:03} seconds.",
+    end.as_secs(),
+    end.subsec_nanos() / 1_000_000
+  );
 }

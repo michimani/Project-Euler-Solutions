@@ -1,4 +1,5 @@
 use proconio::input;
+use std::time::Instant;
 
 // Solution for Project Euler problem 8
 // Copyright michimani All rights reserved.
@@ -10,6 +11,8 @@ pub fn solve() {
   input! {
     n: usize,
   }
+
+  let start = Instant::now();
 
   let dn = "73167176531330624919225119674426574742355349194934\
             96983520312774506326239578318016984801869478851843\
@@ -43,6 +46,13 @@ pub fn solve() {
   }
 
   println!("answer is {}", answer);
+
+  let end = start.elapsed();
+  println!(
+    "\nIt took {}.{:03} seconds.",
+    end.as_secs(),
+    end.subsec_nanos() / 1_000_000
+  );
 }
 
 fn digit_times(num_str: &str) -> usize {
