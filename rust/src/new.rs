@@ -16,22 +16,32 @@ fn create_new_solution(no: usize) {
   let mut file = File::create(file_path).unwrap();
   let tmpl = format!(
     "use proconio::input;
+use std::time::Instant;
 
-  // Solution for Project Euler problem {}
-  // Copyright michimani All rights reserved.
-  //
-  // https://projecteuler.net/problem={}
-  pub fn solve() {{
-    let org = 0;
-    println!(\"(original: {{}})\", org);
-    input!{{
-      n: usize,
-    }}
-
-    let mut answer = 0;
-
-    println!(\"answer is {{}}\", answer);
+// Solution for Project Euler problem {}
+// Copyright michimani All rights reserved.
+//
+// https://projecteuler.net/problem={}
+pub fn solve() {{
+  let org = 0;
+  println!(\"(original: {{}})\", org);
+  input! {{
+    n: usize,
   }}
+
+  let start = Instant::now();
+
+  let mut answer = 0;
+
+  println!(\"answer is {{}}\", answer);
+
+  let end = start.elapsed();
+  println!(
+    \"\\nIt took {{}}.{{:03}} seconds.\",
+    end.as_secs(),
+    end.subsec_nanos() / 1_000_000
+  );
+}}
   ",
     no, no
   );
