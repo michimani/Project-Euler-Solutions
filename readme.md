@@ -26,7 +26,7 @@ Languages
   
 ### Rust
 
-- runtime Rust 1.56.1 or higher
+- runtime Rust 1.63.0 or higher
 - create new solution script
 
   ```bash
