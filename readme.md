@@ -17,7 +17,7 @@ Languages
 
 ### Go
 
-- runtime Go 1.17
+- runtime Go 1.19
 - create new solution script
 
   ```bash
