@@ -6,30 +6,30 @@ use std::time::Instant;
 //
 // https://projecteuler.net/problem=6
 pub fn solve() {
-  let org: usize = 100;
-  println!("(original: {})", org);
-  input! {
-    n: usize,
-  }
-
-  let start = Instant::now();
-
-  let mut answer = 0;
-
-  for i in 1..(n + 1) {
-    for j in 1..(n + 1) {
-      if i != j {
-        answer = answer + (i * j)
-      }
+    let org: usize = 100;
+    println!("(original: {})", org);
+    input! {
+      n: usize,
     }
-  }
 
-  println!("answer is {}", answer);
+    let start = Instant::now();
 
-  let end = start.elapsed();
-  println!(
-    "\nIt took {}.{:03} seconds.",
-    end.as_secs(),
-    end.subsec_nanos() / 1_000_000
-  );
+    let mut answer = 0;
+
+    for i in 1..(n + 1) {
+        for j in 1..(n + 1) {
+            if i != j {
+                answer = answer + (i * j)
+            }
+        }
+    }
+
+    println!("answer is {}", answer);
+
+    let end = start.elapsed();
+    println!(
+        "\nIt took {}.{:03} seconds.",
+        end.as_secs(),
+        end.subsec_nanos() / 1_000_000
+    );
 }

@@ -6,15 +6,15 @@ use std::time::Instant;
 //
 // https://projecteuler.net/problem=8
 pub fn solve() {
-  let org = 13;
-  println!("(original: {})", org);
-  input! {
-    n: usize,
-  }
+    let org = 13;
+    println!("(original: {})", org);
+    input! {
+      n: usize,
+    }
 
-  let start = Instant::now();
+    let start = Instant::now();
 
-  let dn = "73167176531330624919225119674426574742355349194934\
+    let dn = "73167176531330624919225119674426574742355349194934\
             96983520312774506326239578318016984801869478851843\
             85861560789112949495459501737958331952853208805511\
             12540698747158523863050715693290963295227443043557\
@@ -35,39 +35,39 @@ pub fn solve() {
             05886116467109405077541002256983155200055935729725\
             71636269561882670428252483600823257530420752963450";
 
-  let mut answer = 0;
+    let mut answer = 0;
 
-  for i in 0..(dn.len() - n) {
-    let range = &dn[i..i + n];
-    let times = digit_times(&range);
-    if answer < times {
-      answer = times;
+    for i in 0..(dn.len() - n) {
+        let range = &dn[i..i + n];
+        let times = digit_times(&range);
+        if answer < times {
+            answer = times;
+        }
     }
-  }
 
-  println!("answer is {}", answer);
+    println!("answer is {}", answer);
 
-  let end = start.elapsed();
-  println!(
-    "\nIt took {}.{:03} seconds.",
-    end.as_secs(),
-    end.subsec_nanos() / 1_000_000
-  );
+    let end = start.elapsed();
+    println!(
+        "\nIt took {}.{:03} seconds.",
+        end.as_secs(),
+        end.subsec_nanos() / 1_000_000
+    );
 }
 
 fn digit_times(num_str: &str) -> usize {
-  let mut t = 1;
-  for c in num_str.chars().into_iter() {
-    let n = c as usize - 48;
-    t *= n;
-  }
+    let mut t = 1;
+    for c in num_str.chars().into_iter() {
+        let n = c as usize - 48;
+        t *= n;
+    }
 
-  return t;
+    return t;
 }
 
 #[test]
 fn test_digit_times() {
-  assert_eq!(digit_times("123"), 6);
-  assert_eq!(digit_times("1234"), 24);
-  assert_eq!(digit_times("12345"), 120);
+    assert_eq!(digit_times("123"), 6);
+    assert_eq!(digit_times("1234"), 24);
+    assert_eq!(digit_times("12345"), 120);
 }

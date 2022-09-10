@@ -3,19 +3,19 @@ use std::fs::{File, OpenOptions};
 use std::io::Write;
 
 fn main() {
-  let args: Vec<String> = env::args().collect();
-  let solution_no_str = &args[1];
-  let solution_no: usize = solution_no_str.parse().unwrap();
+    let args: Vec<String> = env::args().collect();
+    let solution_no_str = &args[1];
+    let solution_no: usize = solution_no_str.parse().unwrap();
 
-  create_new_solution(solution_no);
-  update_mod(solution_no);
+    create_new_solution(solution_no);
+    update_mod(solution_no);
 }
 
 fn create_new_solution(no: usize) {
-  let file_path = format!("src/solutions/s{:>04}.rs", no);
-  let mut file = File::create(file_path).unwrap();
-  let tmpl = format!(
-    "use proconio::input;
+    let file_path = format!("src/solutions/s{:>04}.rs", no);
+    let mut file = File::create(file_path).unwrap();
+    let tmpl = format!(
+        "use proconio::input;
 use std::time::Instant;
 
 // Solution for Project Euler problem {}
@@ -43,15 +43,15 @@ pub fn solve() {{
   );
 }}
   ",
-    no, no
-  );
+        no, no
+    );
 
-  file.write_all(tmpl.as_bytes()).unwrap();
+    file.write_all(tmpl.as_bytes()).unwrap();
 }
 
 fn update_mod(no: usize) {
-  let new_line = format!("pub mod s{:>04};\n", no);
-  let mod_path = "src/solutions/mod.rs";
-  let mut mod_file = OpenOptions::new().append(true).open(mod_path).unwrap();
-  mod_file.write_all(new_line.as_bytes()).unwrap();
+    let new_line = format!("pub mod s{:>04};\n", no);
+    let mod_path = "src/solutions/mod.rs";
+    let mut mod_file = OpenOptions::new().append(true).open(mod_path).unwrap();
+    mod_file.write_all(new_line.as_bytes()).unwrap();
 }
