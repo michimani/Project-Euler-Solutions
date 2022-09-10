@@ -1,4 +1,5 @@
 use proconio::input;
+use std::time::Instant;
 
 // Solution for Project Euler problem 10
 // Copyright michimani All rights reserved.
@@ -11,24 +12,37 @@ pub fn solve() {
     n: usize,
   }
 
-  let mut answer: usize = 0;
-  for num in 2..n + 1 {
-    if num > 5 && num % 5 == 0 {
-      continue;
-    }
+  let start = Instant::now();
 
+  let mut answer: usize = 0;
+  let mut primes: Vec<usize> = Vec::new();
+
+  for num in 2..n + 1 {
     let mut is_prime = true;
-    for d in 2..(((num as f64).powf(0.5)) as usize + 1) {
-      if num % d == 0 {
+    let to_div = ((num as f64).powf(0.5)) as usize;
+
+    for p in &primes {
+      if *p > to_div {
+        break;
+      }
+      if num % *p == 0 {
         is_prime = false;
         break;
       }
     }
 
     if is_prime {
+      primes.push(num);
       answer += num;
     }
   }
 
   println!("answer is {}", answer);
+
+  let end = start.elapsed();
+  println!(
+    "\nIt took {}.{:03} seconds.",
+    end.as_secs(),
+    end.subsec_nanos() / 1_000_000
+  );
 }
