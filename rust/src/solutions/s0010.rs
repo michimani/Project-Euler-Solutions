@@ -11,31 +11,22 @@ pub fn solve() {
     n: usize,
   }
 
-  let mut primes: Vec<usize> = Vec::new();
-  let mut num = 2;
-  let mut answer = 0;
-  loop {
-    if num > n {
-      break;
+  let mut answer: usize = 0;
+  for num in 2..n + 1 {
+    if num > 5 && num % 5 == 0 {
+      continue;
     }
 
     let mut is_prime = true;
-    for p in primes.iter() {
-      if num % p == 0 {
+    for d in 2..(((num as f64).powf(0.5)) as usize + 1) {
+      if num % d == 0 {
         is_prime = false;
         break;
       }
     }
 
     if is_prime {
-      primes.push(num);
       answer += num;
-    }
-
-    if num % 2 == 0 {
-      num += 1;
-    } else {
-      num += 2;
     }
   }
 
