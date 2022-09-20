@@ -17,7 +17,7 @@ pub fn solve() {
     let mut digits: Vec<i32> = Vec::new();
     digits.push(1);
     for _ in 0..n {
-        let digits_tmp = digits.clone();
+        let digits_tmp = digits.to_vec();
         let mut add = 0;
         for (i, d) in digits_tmp.iter().enumerate() {
             let mut new_d = *d * 2 + add;
