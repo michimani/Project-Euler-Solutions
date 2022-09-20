@@ -37,7 +37,7 @@ pub fn solve() {{
 
   let end = start.elapsed();
   println!(
-    \"\\nIt took {{}}.{{:03}} seconds.\",
+    \"It took {{}}.{{:03}} seconds.\",
     end.as_secs(),
     end.subsec_nanos() / 1_000_000
   );
