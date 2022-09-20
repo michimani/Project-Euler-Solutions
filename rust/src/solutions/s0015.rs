@@ -5,6 +5,9 @@ use std::time::Instant;
 // Copyright michimani All rights reserved.
 //
 // https://projecteuler.net/problem=15
+//
+// NOTE: (n+m)!/n!m!
+//       If n = m, this is the same of 2nCn
 pub fn solve() {
     let org = 20;
     println!("(original: {})", org);
