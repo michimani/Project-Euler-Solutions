@@ -51,7 +51,7 @@ pub fn solve() {{
 
 fn update_mod(no: usize) {
     let new_line = format!("pub mod s{:>04};\n", no);
-    let mod_path = "src/solutions/mod.rs";
+    let mod_path = "src/solutions.rs";
     let mut mod_file = OpenOptions::new().append(true).open(mod_path).unwrap();
     mod_file.write_all(new_line.as_bytes()).unwrap();
 }
