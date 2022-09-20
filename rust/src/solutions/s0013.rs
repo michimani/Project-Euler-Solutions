@@ -135,10 +135,10 @@ pub fn solve() {
 
         // if sum is over 10^10, remove digits after 11th.
         answer += sum_tmp * d.pow(d_count);
-        if answer > d.pow(10) {
+        if answer > d.pow(n as u32) {
             let sum_str = answer.to_string();
-            answer = sum_str[0..10].parse().unwrap();
-            d_count -= (sum_str.len() - 10) as u32;
+            answer = sum_str[0..n].parse().unwrap();
+            d_count -= (sum_str.len() - n) as u32;
         }
 
         d_count += 1;
