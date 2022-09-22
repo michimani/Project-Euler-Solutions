@@ -1,9 +1,10 @@
 use std::time::Instant;
 
-// Solution for Project Euler problem 32
-// Copyright michimani All rights reserved.
-//
-// https://projecteuler.net/problem=32
+/// Solution for Project Euler problem 32
+///
+/// Copyright michimani All rights reserved.
+///
+/// https://projecteuler.net/problem=32
 static TEN: u32 = 10;
 
 pub fn solve() {

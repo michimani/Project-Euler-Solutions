@@ -18,10 +18,11 @@ fn create_new_solution(no: usize) {
         "use proconio::input;
 use std::time::Instant;
 
-// Solution for Project Euler problem {}
-// Copyright michimani All rights reserved.
-//
-// https://projecteuler.net/problem={}
+/// Solution for Project Euler problem {}
+///
+/// Copyright michimani All rights reserved.
+///
+/// https://projecteuler.net/problem={}
 pub fn solve() {{
   let org = 0;
   println!(\"(original: {{}})\", org);

@@ -1,13 +1,14 @@
 use proconio::input;
 use std::time::Instant;
 
-// Solution for Project Euler problem 15
-// Copyright michimani All rights reserved.
-//
-// https://projecteuler.net/problem=15
-//
-// NOTE: (n+m)!/n!m!
-//       If n = m, this is the same of 2nCn
+/// Solution for Project Euler problem 15
+///
+/// Copyright michimani All rights reserved.
+///
+/// https://projecteuler.net/problem=15
+///
+/// NOTE: (n+m)!/n!m!
+///       If n = m, this is the same of 2nCn
 pub fn solve() {
     let org = 20;
     println!("(original: {})", org);

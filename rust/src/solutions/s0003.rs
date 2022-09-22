@@ -2,10 +2,11 @@ use proconio::input;
 use std::collections::HashMap;
 use std::time::Instant;
 
-// Solution for Project Euler problem 3
-// Copyright michimani All rights reserved.
-//
-// https://projecteuler.net/problem=3
+/// Solution for Project Euler problem 3
+///
+/// Copyright michimani All rights reserved.
+///
+/// https://projecteuler.net/problem=3
 pub fn solve() {
     let org: usize = 600851475143;
     println!("(original: {})", org);

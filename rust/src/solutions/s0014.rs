@@ -1,10 +1,11 @@
 use proconio::input;
 use std::time::Instant;
 
-// Solution for Project Euler problem 14
-// Copyright michimani All rights reserved.
-//
-// https://projecteuler.net/problem=14
+/// Solution for Project Euler problem 14
+///
+/// Copyright michimani All rights reserved.
+///
+/// https://projecteuler.net/problem=14
 pub fn solve() {
     let org = 1000000;
     println!("(original: {})", org);

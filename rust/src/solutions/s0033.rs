@@ -1,9 +1,10 @@
 use std::time::Instant;
 
-// Solution for Project Euler problem 33
-// Copyright michimani All rights reserved.
-//
-// https://projecteuler.net/problem=33
+/// Solution for Project Euler problem 33
+///
+/// Copyright michimani All rights reserved.
+///
+/// https://projecteuler.net/problem=33
 pub fn solve() {
     let start = Instant::now();
 
@@ -87,8 +88,8 @@ fn test_curios_fraction() {
     assert_eq!((false, 48, 88), curious_fraction(48, 88));
 }
 
-// Euclid
-// m > n
+/// Euclid
+/// m > n
 fn gcd(m: i32, n: i32) -> i32 {
     let mut mm = m;
     let mut nn = n;
