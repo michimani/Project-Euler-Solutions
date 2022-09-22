@@ -27,6 +27,7 @@ fn solve(no: usize) {
         16 => solutions::s0016::solve(),
         31 => solutions::s0031::solve(),
         32 => solutions::s0032::solve(),
+        33 => solutions::s0033::solve(),
 
         _ => println!("solution {} is not found.", no),
     }
