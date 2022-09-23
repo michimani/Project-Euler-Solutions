@@ -18,3 +18,4 @@ pub mod s0032;
 pub mod s0033;
 pub mod s0034;
 pub mod s0035;
+pub mod s0036;
