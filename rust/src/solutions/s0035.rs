@@ -18,16 +18,16 @@ pub fn solve() {
 
     let mut answer = 0;
 
-    let primes = utils::prime::generate_prime_numbers(n as i32);
+    let primes = utils::prime::generate_prime_numbers(n);
     for p in &primes {
-        let ten: i32 = 10;
+        let ten: usize = 10;
         let s_len = p.to_string().len();
 
         let mut is_circular = true;
         let mut p_tmp = *p;
         for _ in 1..s_len {
             let n_str = p_tmp.to_string();
-            let largest_digit = (n_str.chars().nth(0).unwrap() as i32) - 48;
+            let largest_digit = (n_str.chars().nth(0).unwrap() as usize) - 48;
             if n_str.len() < s_len {
                 p_tmp = p_tmp * 10;
             } else {
