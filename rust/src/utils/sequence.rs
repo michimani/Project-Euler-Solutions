@@ -86,3 +86,39 @@ fn test_has_duplicated_numbers() {
     assert_eq!(true, has_duplicated_numbers("808"));
     assert_eq!(false, has_duplicated_numbers("1234"));
 }
+
+/// Check the number is n-digit pandigital.
+///
+/// # Example
+/// ```
+/// assert_eq!(true, is_pandigital("32415", &[1, 2, 3, 4, 5].to_vec()));
+/// assert_eq!(false, is_pandigital("112345", &[1, 2, 3, 4, 5].to_vec()));
+/// assert_eq!(false, is_pandigital("32415", &[5, 6, 7, 8, 9].to_vec()));
+/// ```
+pub fn is_pandigital(num_str: &str, digits: &Vec<i32>) -> bool {
+    if has_duplicated_numbers(num_str) {
+        return false;
+    }
+
+    if num_str.len() != digits.len() {
+        return false;
+    }
+
+    let mut cnt = 0;
+    for d in digits {
+        for ns in num_str.chars() {
+            if ns as i32 - 48 - d == 0 {
+                cnt += 1;
+            }
+        }
+    }
+
+    return cnt == digits.len();
+}
+
+#[test]
+fn test_is_pandigital() {
+    assert_eq!(true, is_pandigital("32415", &[1, 2, 3, 4, 5].to_vec()));
+    assert_eq!(false, is_pandigital("112345", &[1, 2, 3, 4, 5].to_vec()));
+    assert_eq!(false, is_pandigital("32415", &[5, 6, 7, 8, 9].to_vec()));
+}
