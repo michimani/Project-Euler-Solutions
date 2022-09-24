@@ -1,3 +1,4 @@
+use crate::utils;
 use proconio::input;
 use std::time::Instant;
 
@@ -17,16 +18,27 @@ pub fn solve() {
 
     let mut answer = 0;
 
-    let primes = primes(n);
+    let primes = utils::prime::generate_prime_numbers(n as i32);
     for p in &primes {
-        let rotations = rotations(*p);
+        let ten: i32 = 10;
+        let s_len = p.to_string().len();
+
         let mut is_circular = true;
-        for r in rotations {
-            if !primes.contains(&r) {
+        let mut p_tmp = *p;
+        for _ in 1..s_len {
+            let n_str = p_tmp.to_string();
+            let largest_digit = (n_str.chars().nth(0).unwrap() as i32) - 48;
+            if n_str.len() < s_len {
+                p_tmp = p_tmp * 10;
+            } else {
+                p_tmp = (p_tmp - (largest_digit * ten.pow(s_len as u32 - 1))) * 10 + largest_digit;
+            }
+            if !primes.contains(&p_tmp) {
                 is_circular = false;
                 break;
             }
         }
+
         if is_circular {
             answer += 1;
         }
@@ -40,64 +52,4 @@ pub fn solve() {
         end.as_secs(),
         end.subsec_nanos() / 1_000_000
     );
-}
-
-/// Returns primes below limit.
-fn primes(limit: usize) -> Vec<usize> {
-    let mut primes: Vec<usize> = Vec::new();
-
-    for num in 2..limit + 1 {
-        let mut is_prime = true;
-        let to_div = ((num as f64).powf(0.5)) as usize;
-
-        for p in &primes {
-            if *p > to_div {
-                break;
-            }
-            if num % *p == 0 {
-                is_prime = false;
-                break;
-            }
-        }
-
-        if is_prime {
-            primes.push(num);
-        }
-    }
-
-    return primes;
-}
-
-#[test]
-fn test_primes() {
-    assert_eq!([2, 3, 5, 7].to_vec(), primes(10));
-}
-
-/// Returns rotations of the number.
-///
-/// # Example
-/// ```
-/// assert_eq!([1].to_vec(), rotations(1));
-/// assert_eq!([123, 231, 312].to_vec(), rotations(123));
-/// assert_eq!([9089, 899, 8990, 9908].to_vec(), rotations(9089));
-/// ```
-fn rotations(n: usize) -> Vec<usize> {
-    let mut n_str = n.to_string();
-    let s_len = n_str.len();
-
-    let mut rotations: Vec<usize> = Vec::new();
-    rotations.push(n);
-    for _ in 1..s_len {
-        n_str = format!("{}{}", &n_str[1..s_len], &n_str[0..1]);
-        rotations.push(n_str.parse().unwrap())
-    }
-
-    return rotations;
-}
-
-#[test]
-fn test_rotations() {
-    assert_eq!([1].to_vec(), rotations(1));
-    assert_eq!([123, 231, 312].to_vec(), rotations(123));
-    assert_eq!([9089, 899, 8990, 9908].to_vec(), rotations(9089));
 }
