@@ -28,3 +28,28 @@ fn test_is_palindromic() {
     assert_eq!(true, is_palindromic("1001001001"));
     assert_eq!(false, is_palindromic("1001001000"));
 }
+
+/// Check the number has 0 at any of digits.
+///
+/// # Example
+/// ```
+/// assert_eq!(true, has_zero("100"));
+/// assert_eq!(true, has_zero("101"));
+/// assert_eq!(false, has_zero("123"));
+/// assert_eq!(false, has_zero("1"));
+/// ```
+pub fn has_zero(num_str: &str) -> bool {
+    if num_str.find("0") == None {
+        return false;
+    }
+
+    return true;
+}
+
+#[test]
+fn test_has_zero() {
+    assert_eq!(true, has_zero("100"));
+    assert_eq!(true, has_zero("101"));
+    assert_eq!(false, has_zero("123"));
+    assert_eq!(false, has_zero("1"));
+}
