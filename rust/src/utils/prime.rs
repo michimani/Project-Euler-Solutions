@@ -7,12 +7,12 @@
 /// assert_eq!(false, is_prime_number(100));
 /// assert_eq!(true, is_prime_number(104729));
 /// ```
-pub fn is_prime_number(num: i32) -> bool {
+pub fn is_prime_number(num: usize) -> bool {
     if num < 2 {
         return false;
     }
 
-    let to_div = ((num as f64).powf(0.5)) as i32;
+    let to_div = (num as f64).powf(0.5) as usize;
 
     for p in 2..num {
         if p > to_div {
