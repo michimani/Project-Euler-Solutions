@@ -1,3 +1,4 @@
+use crate::utils;
 use std::time::Instant;
 
 /// Solution for Project Euler problem 32
@@ -24,7 +25,7 @@ pub fn solve() {
             }
 
             for m1 in TEN.pow(m1d - 1)..TEN.pow(m1d) {
-                if has_zero(m1.to_string().as_str()) {
+                if utils::sequence::has_zero(m1.to_string().as_str()) {
                     continue;
                 }
 
@@ -52,53 +53,13 @@ pub fn solve() {
     );
 }
 
-fn has_zero(num_str: &str) -> bool {
-    if num_str.find("0") == None {
-        return false;
-    }
-
-    return true;
-}
-
-#[test]
-fn test_has_zero() {
-    assert_eq!(true, has_zero("100"));
-    assert_eq!(true, has_zero("101"));
-    assert_eq!(false, has_zero("123"));
-    assert_eq!(false, has_zero("1"));
-}
-
-fn has_same_number(num_str: &str) -> bool {
-    if num_str.len() < 2 {
-        return false;
-    }
-
-    for (i, c) in num_str.chars().enumerate() {
-        if num_str[0..i].find(c) != None
-            || (i + 1 <= num_str.len() && num_str[i + 1..num_str.len()].find(c) != None)
-        {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-#[test]
-fn test_has_same_number() {
-    assert_eq!(false, has_same_number("8"));
-    assert_eq!(true, has_same_number("88"));
-    assert_eq!(true, has_same_number("808"));
-    assert_eq!(false, has_same_number("1234"));
-}
-
 // gen_multiplier_list generates multiplier
 fn gen_multiplier_list(digit: u32, exclude: u32) -> Vec<u32> {
     let mut ml = Vec::new();
 
     for i in TEN.pow(digit as u32 - 1)..TEN.pow(digit as u32) {
         // exclude number contains 0
-        if has_zero(i.to_string().as_str()) {
+        if utils::sequence::has_zero(i.to_string().as_str()) {
             continue;
         }
 
@@ -114,7 +75,7 @@ fn gen_multiplier_list(digit: u32, exclude: u32) -> Vec<u32> {
             continue;
         }
 
-        is_multiplier = !has_same_number(&i.to_string());
+        is_multiplier = !utils::sequence::has_duplicated_numbers(&i.to_string());
         if is_multiplier {
             ml.push(i);
         }
@@ -140,15 +101,10 @@ fn is_mul_mul(a: u32, b: u32) -> (u32, bool) {
 
     let check_str = format!("{}{}{}", a, b, p);
 
-    if has_same_number(&check_str) {
-        return (p, false);
-    }
-
-    if has_zero(&check_str) {
-        return (p, false);
-    }
-
-    return (p, check_str.len() == 9);
+    return (
+        p,
+        utils::sequence::is_pandigital(&check_str, &[1, 2, 3, 4, 5, 6, 7, 8, 9].to_vec()),
+    );
 }
 
 #[test]
