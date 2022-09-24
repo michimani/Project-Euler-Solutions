@@ -53,3 +53,36 @@ fn test_has_zero() {
     assert_eq!(false, has_zero("123"));
     assert_eq!(false, has_zero("1"));
 }
+
+/// Check the number has some duplicated numbers.
+///
+/// # Example
+/// ```
+/// assert_eq!(false, has_duplicated_numbers("8"));
+/// assert_eq!(true, has_duplicated_numbers("88"));
+/// assert_eq!(true, has_duplicated_numbers("808"));
+/// assert_eq!(false, has_duplicated_numbers("1234"));
+/// ```
+pub fn has_duplicated_numbers(num_str: &str) -> bool {
+    if num_str.len() < 2 {
+        return false;
+    }
+
+    for (i, c) in num_str.chars().enumerate() {
+        if num_str[0..i].find(c) != None
+            || (i + 1 <= num_str.len() && num_str[i + 1..num_str.len()].find(c) != None)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+#[test]
+fn test_has_duplicated_numbers() {
+    assert_eq!(false, has_duplicated_numbers("8"));
+    assert_eq!(true, has_duplicated_numbers("88"));
+    assert_eq!(true, has_duplicated_numbers("808"));
+    assert_eq!(false, has_duplicated_numbers("1234"));
+}
