@@ -1,3 +1,4 @@
+use crate::utils;
 use proconio::input;
 use std::collections::HashMap;
 use std::time::Instant;
@@ -21,15 +22,7 @@ pub fn solve() {
     let mut primes: Vec<usize> = Vec::new();
     let mut primes_count_map: HashMap<usize, usize> = HashMap::new();
     for i in 2..(n + 1) {
-        let mut is_prime = true;
-        for p in (&primes).into_iter() {
-            if i % p == 0 {
-                is_prime = false;
-                break;
-            }
-        }
-
-        if is_prime {
+        if utils::prime::is_prime_number(i) {
             primes.push(i);
             primes_count_map.insert(i, 1);
         } else {
