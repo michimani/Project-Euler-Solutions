@@ -44,12 +44,12 @@ fn test_is_prime_number() {
 ///     generate_prime_numbers(20)
 /// );
 /// ```
-pub fn generate_prime_numbers(limit: i32) -> Vec<i32> {
-    let mut primes: Vec<i32> = Vec::new();
+pub fn generate_prime_numbers(limit: usize) -> Vec<usize> {
+    let mut primes: Vec<usize> = Vec::new();
 
     for num in 2..limit + 1 {
         let mut is_prime = true;
-        let to_div = ((num as f64).powf(0.5)) as i32;
+        let to_div = ((num as f64).powf(0.5)) as usize;
 
         for p in &primes {
             if *p > to_div {
