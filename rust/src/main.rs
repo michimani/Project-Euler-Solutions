@@ -1,4 +1,5 @@
 mod solutions;
+mod utils;
 use std::env;
 
 fn main() {
