@@ -1,3 +1,6 @@
+/// Used to compute powers of 10.
+const TEN: usize = 10;
+
 /// Check the string is palindromic.
 ///
 /// # Example
@@ -121,4 +124,55 @@ fn test_is_pandigital() {
     assert_eq!(true, is_pandigital("32415", &[1, 2, 3, 4, 5].to_vec()));
     assert_eq!(false, is_pandigital("112345", &[1, 2, 3, 4, 5].to_vec()));
     assert_eq!(false, is_pandigital("32415", &[5, 6, 7, 8, 9].to_vec()));
+}
+
+/// Generates pandigital numbers with the specified digits.
+///
+/// # Example
+/// ```
+/// assert_eq!([12, 21].to_vec(), generate_pandigital_numbers(&[1, 2].to_vec()));
+/// assert_eq!([123, 132, 213, 231, 312, 321].to_vec(), generate_pandigital_numbers(&[1, 2, 3].to_vec()));
+/// ```
+pub fn generate_pandigital_numbers(digits: &Vec<usize>) -> Vec<usize> {
+    let mut nums = Vec::new();
+
+    fn gen(
+        list: &mut Vec<usize>,
+        base: usize,
+        digits: &Vec<usize>,
+        digit_number: usize,
+        exclude_indices: &Vec<usize>,
+    ) {
+        if digit_number == 0 {
+            list.push(base);
+            return;
+        }
+
+        for (i, v) in digits.iter().enumerate() {
+            if exclude_indices.contains(&i) {
+                continue;
+            }
+
+            let new_base = base + v * TEN.pow(digit_number as u32 - 1);
+            let mut exclude_clone = exclude_indices.clone();
+            exclude_clone.push(i);
+            gen(list, new_base, digits, digit_number - 1, &exclude_clone);
+        }
+    }
+
+    gen(&mut nums, 0, digits, digits.len(), &Vec::new());
+
+    return nums;
+}
+
+#[test]
+fn test_generate_pandigital_numbers() {
+    assert_eq!(
+        [12, 21].to_vec(),
+        generate_pandigital_numbers(&[1, 2].to_vec())
+    );
+    assert_eq!(
+        [123, 132, 213, 231, 312, 321].to_vec(),
+        generate_pandigital_numbers(&[1, 2, 3].to_vec())
+    );
 }
