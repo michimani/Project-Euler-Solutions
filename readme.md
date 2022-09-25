@@ -76,7 +76,7 @@ My solutions for [Project Euler](https://projecteuler.net/). ([in Japanese](http
 | 38 |  |  | ✅ |
 | 39 |  |  | ✅ |
 | 40 |  |  | ✅ |
-| 41 |  |  |  |
+| 41 |  |  | ✅ |
 | 42 |  |  |  |
 | 43 |  |  |  |
 | 44 |  |  |  |
