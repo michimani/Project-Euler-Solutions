@@ -35,7 +35,7 @@ My solutions for [Project Euler](https://projecteuler.net/). ([in Japanese](http
 # Progress
 
 |  | Python | Go | Rust |
-| --- | --- | --- | --- |
+| :---: | :---: | :---: | :---: |
 | 1 | ✅ | ✅ | ✅ |
 | 2 | ✅ | ✅ | ✅ |
 | 3 | ✅ | ✅ | ✅ |
@@ -77,7 +77,7 @@ My solutions for [Project Euler](https://projecteuler.net/). ([in Japanese](http
 | 39 |  |  | ✅ |
 | 40 |  |  | ✅ |
 | 41 |  |  | ✅ |
-| 42 |  |  |  |
+| 42 |  |  | ✅ |
 | 43 |  |  |  |
 | 44 |  |  |  |
 | 45 |  |  |  |
