@@ -80,7 +80,7 @@ My solutions for [Project Euler](https://projecteuler.net/). ([in Japanese](http
 | 42 |  |  | ✅ |
 | 43 |  |  | ✅ |
 | 44 |  |  | ✅ |
-| 45 |  |  |  |
+| 45 |  |  | ✅ |
 | 46 |  |  |  |
 | 47 |  |  |  |
 | 48 |  |  |  |
