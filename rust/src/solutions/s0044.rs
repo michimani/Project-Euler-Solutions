@@ -1,5 +1,7 @@
 use std::time::Instant;
 
+use crate::utils;
+
 /// Solution for Project Euler problem 44
 ///
 /// Copyright michimani All rights reserved.
@@ -29,12 +31,12 @@ pub fn solve() {
 
                 let pk = p_nums[k];
 
-                if !is_pentagonal((pj + pk) as i64) {
+                if !utils::natural::is_pentagonal_number((pj + pk) as i64) {
                     continue;
                 }
 
                 let diff = pk - pj;
-                if !is_pentagonal(diff as i64) {
+                if !utils::natural::is_pentagonal_number(diff as i64) {
                     continue;
                 }
 
@@ -77,21 +79,4 @@ fn gen_pentagonal_numbers(start: usize, count: usize) -> Vec<usize> {
     }
 
     return nums;
-}
-
-fn is_pentagonal(n: i64) -> bool {
-    let mut check = n;
-    let mut count = 0;
-    return loop {
-        if check == 0 {
-            break true;
-        }
-
-        if check < 0 {
-            break false;
-        }
-
-        check = check - 3 * count - 1;
-        count += 1;
-    };
 }
