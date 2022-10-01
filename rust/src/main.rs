@@ -43,6 +43,7 @@ fn solve(no: usize) {
         45 => solutions::s0045::solve(),
         46 => solutions::s0046::solve(),
         47 => solutions::s0047::solve(),
+        48 => solutions::s0048::solve(),
 
         _ => println!("solution {} is not found.", no),
     }
