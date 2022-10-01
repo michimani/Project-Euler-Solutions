@@ -1,3 +1,7 @@
+use std::io;
+use std::num::ParseIntError;
+use std::result::Result;
+
 pub fn sum_of(na: Vec<usize>, nb: Vec<usize>) -> Vec<usize> {
     let mut ans = na.clone();
     let mut dc = nb.len();
@@ -107,4 +111,27 @@ pub fn to_string(big: Vec<usize>) -> String {
 #[test]
 fn test_to_string() {
     assert_eq!("12345", to_string([5, 4, 3, 2, 1].to_vec()))
+}
+
+pub fn to_big(num_str: &str) -> Result<Vec<usize>, &str> {
+    let mut big = Vec::new();
+
+    for dc in num_str.chars() {
+        let d = dc as i32 - 48;
+        if d < 0 || d > 10 {
+            return Err("parse error");
+        }
+        big.push(d as usize);
+    }
+
+    big.reverse();
+    return Ok(big);
+}
+
+#[test]
+fn test_to_big() {
+    let r1 = to_big("12345");
+    assert_eq!(Ok([5, 4, 3, 2, 1].to_vec()), r1);
+    let r2 = to_big("12345abc");
+    assert!(r2.is_err());
 }
