@@ -32,3 +32,4 @@ pub mod s0046;
 pub mod s0047;
 pub mod s0048;
 pub mod s0049;
+pub mod s0050;
