@@ -41,6 +41,12 @@ pub fn solve() {
             if sum == *p && count > answer_count {
                 answer = *p;
                 answer_count = count;
+                break;
+            }
+
+            // can break
+            if sum > *p && sum - primes[s + 1] + primes[j] > *p && count < answer_count {
+                break;
             }
         }
     }
