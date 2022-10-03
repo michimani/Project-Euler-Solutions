@@ -21,9 +21,14 @@ pub fn alphabet_to_index(c: char) -> usize {
     return u;
 }
 
-#[test]
-fn test_alphabet_to_index() {
-    assert_eq!(11, alphabet_to_index('K'));
-    assert_eq!(25, alphabet_to_index('y'));
-    assert_eq!(33, alphabet_to_index('!'));
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_alphabet_to_index() {
+        assert_eq!(11, alphabet_to_index('K'));
+        assert_eq!(25, alphabet_to_index('y'));
+        assert_eq!(33, alphabet_to_index('!'));
+    }
 }
