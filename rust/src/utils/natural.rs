@@ -15,12 +15,6 @@ pub fn is_triangle_number(n: i64) -> bool {
     };
 }
 
-#[test]
-fn test_is_triangle_number() {
-    assert_eq!(true, is_triangle_number(55));
-    assert_eq!(false, is_triangle_number(8));
-}
-
 /// Check the number is a pentagonal number.
 ///
 /// Example of pentagonal numbers: 1, 5, 12, 22, 35...
@@ -39,12 +33,6 @@ pub fn is_pentagonal_number(n: i64) -> bool {
         check = check - 3 * count - 1;
         count += 1;
     };
-}
-
-#[test]
-fn test_is_pentagonal_number() {
-    assert_eq!(true, is_pentagonal_number(40755));
-    assert_eq!(false, is_pentagonal_number(9999));
 }
 
 /// Check the number is a hexagonal number.
@@ -67,10 +55,27 @@ pub fn is_hexagonal_number(n: i64) -> bool {
     };
 }
 
-#[test]
-fn test_is_hexagonal_number() {
-    assert_eq!(true, is_hexagonal_number(1));
-    assert_eq!(true, is_hexagonal_number(28));
-    assert_eq!(true, is_hexagonal_number(40755));
-    assert_eq!(false, is_hexagonal_number(9999));
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_is_triangle_number() {
+        assert_eq!(true, is_triangle_number(55));
+        assert_eq!(false, is_triangle_number(8));
+    }
+
+    #[test]
+    fn test_is_pentagonal_number() {
+        assert_eq!(true, is_pentagonal_number(40755));
+        assert_eq!(false, is_pentagonal_number(9999));
+    }
+
+    #[test]
+    fn test_is_hexagonal_number() {
+        assert_eq!(true, is_hexagonal_number(1));
+        assert_eq!(true, is_hexagonal_number(28));
+        assert_eq!(true, is_hexagonal_number(40755));
+        assert_eq!(false, is_hexagonal_number(9999));
+    }
 }

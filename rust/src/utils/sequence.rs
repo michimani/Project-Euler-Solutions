@@ -25,13 +25,6 @@ pub fn is_palindromic(num_str: &str) -> bool {
     return is_palindromic;
 }
 
-#[test]
-fn test_is_palindromic() {
-    assert_eq!(true, is_palindromic("100101001"));
-    assert_eq!(true, is_palindromic("1001001001"));
-    assert_eq!(false, is_palindromic("1001001000"));
-}
-
 /// Check the number has 0 at any of digits.
 ///
 /// # Example
@@ -47,14 +40,6 @@ pub fn has_zero(num_str: &str) -> bool {
     }
 
     return true;
-}
-
-#[test]
-fn test_has_zero() {
-    assert_eq!(true, has_zero("100"));
-    assert_eq!(true, has_zero("101"));
-    assert_eq!(false, has_zero("123"));
-    assert_eq!(false, has_zero("1"));
 }
 
 /// Check the number has some duplicated numbers.
@@ -80,14 +65,6 @@ pub fn has_duplicated_numbers(num_str: &str) -> bool {
     }
 
     return false;
-}
-
-#[test]
-fn test_has_duplicated_numbers() {
-    assert_eq!(false, has_duplicated_numbers("8"));
-    assert_eq!(true, has_duplicated_numbers("88"));
-    assert_eq!(true, has_duplicated_numbers("808"));
-    assert_eq!(false, has_duplicated_numbers("1234"));
 }
 
 /// Check the number is n-digit pandigital.
@@ -117,13 +94,6 @@ pub fn is_pandigital(num_str: &str, digits: &Vec<i32>) -> bool {
     }
 
     return cnt == digits.len();
-}
-
-#[test]
-fn test_is_pandigital() {
-    assert_eq!(true, is_pandigital("32415", &[1, 2, 3, 4, 5].to_vec()));
-    assert_eq!(false, is_pandigital("112345", &[1, 2, 3, 4, 5].to_vec()));
-    assert_eq!(false, is_pandigital("32415", &[5, 6, 7, 8, 9].to_vec()));
 }
 
 /// Generates pandigital numbers with the specified digits.
@@ -165,14 +135,49 @@ pub fn generate_pandigital_numbers(digits: &Vec<usize>) -> Vec<usize> {
     return nums;
 }
 
-#[test]
-fn test_generate_pandigital_numbers() {
-    assert_eq!(
-        [12, 21].to_vec(),
-        generate_pandigital_numbers(&[1, 2].to_vec())
-    );
-    assert_eq!(
-        [123, 132, 213, 231, 312, 321].to_vec(),
-        generate_pandigital_numbers(&[1, 2, 3].to_vec())
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_is_palindromic() {
+        assert_eq!(true, is_palindromic("100101001"));
+        assert_eq!(true, is_palindromic("1001001001"));
+        assert_eq!(false, is_palindromic("1001001000"));
+    }
+
+    #[test]
+    fn test_has_zero() {
+        assert_eq!(true, has_zero("100"));
+        assert_eq!(true, has_zero("101"));
+        assert_eq!(false, has_zero("123"));
+        assert_eq!(false, has_zero("1"));
+    }
+
+    #[test]
+    fn test_has_duplicated_numbers() {
+        assert_eq!(false, has_duplicated_numbers("8"));
+        assert_eq!(true, has_duplicated_numbers("88"));
+        assert_eq!(true, has_duplicated_numbers("808"));
+        assert_eq!(false, has_duplicated_numbers("1234"));
+    }
+
+    #[test]
+    fn test_is_pandigital() {
+        assert_eq!(true, is_pandigital("32415", &[1, 2, 3, 4, 5].to_vec()));
+        assert_eq!(false, is_pandigital("112345", &[1, 2, 3, 4, 5].to_vec()));
+        assert_eq!(false, is_pandigital("32415", &[5, 6, 7, 8, 9].to_vec()));
+    }
+
+    #[test]
+    fn test_generate_pandigital_numbers() {
+        assert_eq!(
+            [12, 21].to_vec(),
+            generate_pandigital_numbers(&[1, 2].to_vec())
+        );
+        assert_eq!(
+            [123, 132, 213, 231, 312, 321].to_vec(),
+            generate_pandigital_numbers(&[1, 2, 3].to_vec())
+        );
+    }
 }
