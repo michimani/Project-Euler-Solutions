@@ -26,14 +26,6 @@ pub fn is_prime_number(num: usize) -> bool {
     return true;
 }
 
-#[test]
-fn test_is_prime_number() {
-    assert_eq!(false, is_prime_number(1));
-    assert_eq!(true, is_prime_number(2));
-    assert_eq!(false, is_prime_number(100));
-    assert_eq!(true, is_prime_number(104729));
-}
-
 /// Generates prime numbers until limit.
 ///
 /// # Example
@@ -69,11 +61,25 @@ pub fn generate_prime_numbers(limit: usize) -> Vec<usize> {
     return primes;
 }
 
-#[test]
-fn test_generate_prime_numbers() {
-    assert_eq!([2, 3, 5].to_vec(), generate_prime_numbers(5));
-    assert_eq!(
-        [2, 3, 5, 7, 11, 13, 17, 19].to_vec(),
-        generate_prime_numbers(20)
-    );
+#[cfg(test)]
+
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_is_prime_number() {
+        assert_eq!(false, is_prime_number(1));
+        assert_eq!(true, is_prime_number(2));
+        assert_eq!(false, is_prime_number(100));
+        assert_eq!(true, is_prime_number(104729));
+    }
+
+    #[test]
+    fn test_generate_prime_numbers() {
+        assert_eq!([2, 3, 5].to_vec(), generate_prime_numbers(5));
+        assert_eq!(
+            [2, 3, 5, 7, 11, 13, 17, 19].to_vec(),
+            generate_prime_numbers(20)
+        );
+    }
 }
