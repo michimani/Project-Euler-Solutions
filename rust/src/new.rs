@@ -27,7 +27,7 @@ pub fn solve() {{
   let org = 0;
   println!(\"(original: {{}})\", org);
   input! {{
-    n: usize,
+    n: u64,
   }}
 
   let start = Instant::now();

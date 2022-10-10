@@ -135,6 +135,40 @@ pub fn generate_pandigital_numbers(digits: &Vec<usize>) -> Vec<usize> {
     return nums;
 }
 
+/// Two numbers have the same digits (difference order is ok).
+///
+/// # Example
+/// ```
+/// assert_eq!(false, has_same_digits(122, 12));
+/// assert_eq!(true, has_same_digits(123, 312));
+/// assert_eq!(true, has_same_digits(12234, 21234));
+/// assert_eq!(false, has_same_digits(100099, 200198));
+/// assert_eq!(true, has_same_digits(125874, 251748));
+/// ```
+pub fn has_same_digits(n: u64, m: u64) -> bool {
+    if n == m {
+        return true;
+    }
+
+    let mut n_str: Vec<char> = n.to_string().chars().collect();
+    let mut m_str: Vec<char> = m.to_string().chars().collect();
+
+    if n_str.len() != m_str.len() {
+        return false;
+    }
+
+    n_str.sort_by(|c1, c2| c1.cmp(c2));
+    m_str.sort_by(|c1, c2| c1.cmp(c2));
+
+    for (i, c) in n_str.iter().enumerate() {
+        if m_str[i] != *c {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -179,5 +213,14 @@ mod tests {
             [123, 132, 213, 231, 312, 321].to_vec(),
             generate_pandigital_numbers(&[1, 2, 3].to_vec())
         );
+    }
+
+    #[test]
+    fn test_has_same_digits() {
+        assert_eq!(false, has_same_digits(122, 12));
+        assert_eq!(true, has_same_digits(123, 312));
+        assert_eq!(true, has_same_digits(12234, 21234));
+        assert_eq!(false, has_same_digits(100099, 200198));
+        assert_eq!(true, has_same_digits(125874, 251748));
     }
 }
