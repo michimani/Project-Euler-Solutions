@@ -139,22 +139,29 @@ pub fn generate_pandigital_numbers(digits: &Vec<usize>) -> Vec<usize> {
 ///
 /// # Example
 /// ```
-///
+/// assert_eq!(false, has_same_digits(122, 12));
+/// assert_eq!(true, has_same_digits(123, 312));
+/// assert_eq!(true, has_same_digits(12234, 21234));
+/// assert_eq!(false, has_same_digits(100099, 200198));
+/// assert_eq!(true, has_same_digits(125874, 251748));
 /// ```
 pub fn has_same_digits(n: u64, m: u64) -> bool {
     if n == m {
         return true;
     }
 
-    let n_str = n.to_string();
-    let m_str = m.to_string();
+    let mut n_str: Vec<char> = n.to_string().chars().collect();
+    let mut m_str: Vec<char> = m.to_string().chars().collect();
 
     if n_str.len() != m_str.len() {
         return false;
     }
 
-    for c in n_str.chars() {
-        if !m_str.contains(c) {
+    n_str.sort_by(|c1, c2| c1.cmp(c2));
+    m_str.sort_by(|c1, c2| c1.cmp(c2));
+
+    for (i, c) in n_str.iter().enumerate() {
+        if m_str[i] != *c {
             return false;
         }
     }
@@ -213,6 +220,7 @@ mod tests {
         assert_eq!(false, has_same_digits(122, 12));
         assert_eq!(true, has_same_digits(123, 312));
         assert_eq!(true, has_same_digits(12234, 21234));
+        assert_eq!(false, has_same_digits(100099, 200198));
         assert_eq!(true, has_same_digits(125874, 251748));
     }
 }
