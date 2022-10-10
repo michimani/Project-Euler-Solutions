@@ -63,44 +63,32 @@ pub fn is_hexagonal_number(n: i64) -> bool {
 /// assert_eq!(45, combinations(10, 2));
 /// assert_eq!(45, combinations(10, 8));
 /// ```
+#[allow(dead_code)]
 pub fn combinations(n: u64, r: u64) -> u64 {
     if n < r {
         return 0;
     }
 
-    let nr = n - r;
+    let mut divs: Vec<u64> = (1..=r).collect();
+    let mut divs2: Vec<u64> = (1..=(n - r)).collect();
+    divs.append(&mut divs2);
+
+    let mut used: Vec<usize> = Vec::new();
 
     let mut c = 1;
-    let mut ri_start = 0;
-    let mut nri_start = 0;
-    for ni in 0..n {
-        c *= n - ni;
+    for ni in 1..=n {
+        c *= ni;
 
-        for ri in ri_start..r {
-            if c % (r - ri) == 0 {
-                c /= r - ri;
-                ri_start += 1;
-            } else {
-                break;
+        for (i, d) in divs.iter().enumerate() {
+            if used.contains(&i) {
+                continue;
+            }
+
+            if c % d == 0 {
+                c /= d;
+                used.push(i);
             }
         }
-
-        for nri in nri_start..nr {
-            if c % (nr - nri) == 0 {
-                c /= nr - nri;
-                nri_start += 1;
-            } else {
-                break;
-            }
-        }
-    }
-
-    for ri in ri_start..r {
-        c /= r - ri;
-    }
-
-    for nri in nri_start..nr {
-        c /= nr - nri;
     }
 
     return c;
