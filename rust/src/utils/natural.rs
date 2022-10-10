@@ -55,6 +55,57 @@ pub fn is_hexagonal_number(n: i64) -> bool {
     };
 }
 
+/// Returns the result computed in nCr.
+///
+/// # Example
+/// ```
+/// assert_eq!(10, combinations(5, 3));
+/// assert_eq!(45, combinations(10, 2));
+/// assert_eq!(45, combinations(10, 8));
+/// ```
+pub fn combinations(n: u64, r: u64) -> u64 {
+    if n < r {
+        return 0;
+    }
+
+    let nr = n - r;
+
+    let mut c = 1;
+    let mut ri_start = 0;
+    let mut nri_start = 0;
+    for ni in 0..n {
+        c *= n - ni;
+
+        for ri in ri_start..r {
+            if c % (r - ri) == 0 {
+                c /= r - ri;
+                ri_start += 1;
+            } else {
+                break;
+            }
+        }
+
+        for nri in nri_start..nr {
+            if c % (nr - nri) == 0 {
+                c /= nr - nri;
+                nri_start += 1;
+            } else {
+                break;
+            }
+        }
+    }
+
+    for ri in ri_start..r {
+        c /= r - ri;
+    }
+
+    for nri in nri_start..nr {
+        c /= nr - nri;
+    }
+
+    return c;
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -77,5 +128,12 @@ mod tests {
         assert_eq!(true, is_hexagonal_number(28));
         assert_eq!(true, is_hexagonal_number(40755));
         assert_eq!(false, is_hexagonal_number(9999));
+    }
+
+    #[test]
+    fn test_combinations() {
+        assert_eq!(10, combinations(5, 3));
+        assert_eq!(45, combinations(10, 2));
+        assert_eq!(45, combinations(10, 8));
     }
 }
