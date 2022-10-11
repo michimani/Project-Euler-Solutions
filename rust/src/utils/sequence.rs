@@ -169,6 +169,7 @@ pub fn has_same_digits(n: u64, m: u64) -> bool {
     return true;
 }
 
+#[allow(dead_code)]
 pub fn reverse(n: u64) -> u64 {
     let mut reversed = "".to_string();
     for c in n.to_string().chars() {
