@@ -169,6 +169,17 @@ pub fn has_same_digits(n: u64, m: u64) -> bool {
     return true;
 }
 
+#[allow(dead_code)]
+pub fn reverse(n: u64) -> u64 {
+    let mut reversed = "".to_string();
+    for c in n.to_string().chars() {
+        reversed = format!("{}{}", c as u64 - 48, reversed)
+    }
+
+    // reversed is clearly a number
+    return reversed.parse().unwrap();
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -222,5 +233,12 @@ mod tests {
         assert_eq!(true, has_same_digits(12234, 21234));
         assert_eq!(false, has_same_digits(100099, 200198));
         assert_eq!(true, has_same_digits(125874, 251748));
+    }
+
+    #[test]
+    fn test_reverse() {
+        assert_eq!(321, reverse(123));
+        assert_eq!(321, reverse(1230));
+        assert_eq!(1001, reverse(1001));
     }
 }
