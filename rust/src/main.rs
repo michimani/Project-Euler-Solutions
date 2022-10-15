@@ -52,6 +52,7 @@ fn solve(no: usize) {
         56 => solutions::s0056::solve(),
         57 => solutions::s0057::solve(),
         58 => solutions::s0058::solve(),
+        60 => solutions::s0060::solve(),
 
         _ => println!("solution {} is not found.", no),
     }
