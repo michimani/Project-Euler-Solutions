@@ -1,7 +1,7 @@
 use proconio::input;
 use std::time::Instant;
 
-use crate::utils;
+use crate::utils::big::BigNumber;
 
 /// Solution for Project Euler problem 48
 ///
@@ -21,26 +21,25 @@ pub fn solve() {
     }
 
     let start = Instant::now();
-    let mut ans_big = Vec::new();
+    let bn0 = BigNumber::from_vec(vec![0]);
+    let mut answer = BigNumber::from_vec(vec![0]);
     for num in 1..=n {
         // num is a number clearly
-        let num_big_base = utils::big::to_big(&num.to_string()).unwrap();
-        let mut num_big_tmp = num_big_base.clone();
+        let bn_base = BigNumber::new(&num.to_string()).unwrap();
+        let mut bn_base_tmp = bn_base.add(&bn0);
         for _ in 0..num - 1 {
-            num_big_tmp = utils::big::product_of(&num_big_tmp, &num_big_base);
-            if digit_limit > 0 && num_big_tmp.len() > digit_limit {
-                num_big_tmp = num_big_tmp[0..10].to_owned();
+            bn_base_tmp = bn_base_tmp.mul(&bn_base);
+            if digit_limit > 0 && bn_base_tmp.len() > digit_limit {
+                bn_base_tmp = bn_base_tmp.part(0, 10).unwrap();
             }
         }
-        ans_big = utils::big::sum_of(&ans_big, &num_big_tmp);
-        if digit_limit > 0 && ans_big.len() > digit_limit {
-            ans_big = ans_big[0..10].to_owned();
+        answer = answer.add(&bn_base_tmp);
+        if digit_limit > 0 && answer.len() > digit_limit {
+            answer = answer.part(0, 10).unwrap();
         }
     }
 
-    let answer = utils::big::to_string(&ans_big);
-
-    println!("answer is {}", answer);
+    println!("answer is {}", answer.to_string());
 
     let end = start.elapsed();
     println!(

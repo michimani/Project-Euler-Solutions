@@ -1,7 +1,7 @@
 use proconio::input;
 use std::time::Instant;
 
-use crate::utils;
+use crate::utils::big::BigNumber;
 
 /// Solution for Project Euler problem 57
 ///
@@ -18,13 +18,15 @@ pub fn solve() {
     let start = Instant::now();
 
     let mut answer = 0;
-    let mut prev1 = vec![1];
-    let mut prev2 = vec![0];
+    let mut prev1 = BigNumber::from_vec(vec![1]);
+    let mut prev2 = BigNumber::from_vec(vec![0]);
+    let bn0 = BigNumber::from_vec(vec![0]);
+    let bn2 = BigNumber::from_vec(vec![2]);
 
     for _ in 1..=n {
-        let mut nume = utils::big::sum_of(&prev1, &vec![0]);
-        let deno = utils::big::sum_of(&utils::big::product_of(&prev1, &vec![2]), &prev2);
-        nume = utils::big::sum_of(&nume, &deno);
+        let mut nume = prev1.add(&bn0);
+        let deno = (prev1.mul(&bn2)).add(&prev2);
+        nume = nume.add(&deno);
 
         if nume.len() > deno.len() {
             answer += 1;
