@@ -198,6 +198,17 @@ impl BigNumber {
 
         return ans;
     }
+
+    #[allow(dead_code)]
+    pub fn to_reverse(&mut self) {
+        self.0.reverse();
+    }
+
+    pub fn reverse(target: &Self) -> Self {
+        let mut rev = target.0.clone();
+        rev.reverse();
+        return Self(rev);
+    }
 }
 
 #[cfg(test)]
@@ -292,5 +303,21 @@ mod tests {
         assert_eq!("54321", bn.part(0, 5).unwrap().to_string());
         assert_eq!("76", bn.part(5, 7).unwrap().to_string());
         assert!(bn.part(0, 100).is_err())
+    }
+
+    #[test]
+    fn test_big_number_to_reverse() {
+        let mut bn = BigNumber::new("12345").unwrap();
+        assert_eq!("12345", bn.to_string());
+        bn.to_reverse();
+        assert_eq!("54321", bn.to_string());
+    }
+
+    #[test]
+    fn test_big_number_reverse() {
+        let bn = BigNumber::new("12345").unwrap();
+        let bn_rev = BigNumber::reverse(&bn);
+        assert_eq!("12345", bn.to_string());
+        assert_eq!("54321", bn_rev.to_string());
     }
 }
