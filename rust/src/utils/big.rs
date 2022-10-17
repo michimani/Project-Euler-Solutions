@@ -209,6 +209,16 @@ impl BigNumber {
         rev.reverse();
         return Self(rev);
     }
+
+    pub fn sum_og_digits(&self) -> u64 {
+        let mut sum = 0;
+
+        for d in &self.0 {
+            sum += *d
+        }
+
+        return sum;
+    }
 }
 
 #[cfg(test)]
@@ -319,5 +329,11 @@ mod tests {
         let bn_rev = BigNumber::reverse(&bn);
         assert_eq!("12345", bn.to_string());
         assert_eq!("54321", bn_rev.to_string());
+    }
+
+    #[test]
+    fn test_big_number_sum_of_digits() {
+        let bn = BigNumber::new("1234567890").unwrap();
+        assert_eq!(45, bn.sum_og_digits());
     }
 }
