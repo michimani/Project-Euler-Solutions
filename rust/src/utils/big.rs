@@ -1,4 +1,3 @@
-use std::ops::{Add, Mul};
 use std::result::Result;
 
 pub fn sum_of(na: &Vec<usize>, nb: &Vec<usize>) -> Vec<usize> {
@@ -113,6 +112,7 @@ impl BigNumber {
         return Self(nv);
     }
 
+    #[allow(dead_code)]
     pub fn to_string(&self) -> String {
         let mut s = String::new();
 
@@ -124,12 +124,12 @@ impl BigNumber {
 
         return s;
     }
-}
 
-impl Add for BigNumber {
-    type Output = Self;
+    pub fn len(&self) -> usize {
+        return self.0.len();
+    }
 
-    fn add(self, other: Self) -> Self {
+    pub fn add(&self, other: &Self) -> Self {
         let mut ans = self.0.clone();
         let mut digit = other.0.len();
         if other.0.len() > ans.len() {
@@ -159,12 +159,8 @@ impl Add for BigNumber {
 
         return Self(ans);
     }
-}
 
-impl Mul for BigNumber {
-    type Output = Self;
-
-    fn mul(self, other: Self) -> Self {
+    pub fn mul(&self, other: &Self) -> Self {
         let mut ans = Self::new("0").unwrap();
 
         for (i, a) in self.0.iter().enumerate() {
@@ -189,7 +185,7 @@ impl Mul for BigNumber {
                 ans_tmp.push(add_next);
             }
 
-            ans = ans + Self::from_vec(ans_tmp);
+            ans = ans.add(&Self::from_vec(ans_tmp));
         }
 
         return ans;
@@ -270,7 +266,7 @@ mod tests {
     fn test_big_number_add() {
         let bn1 = BigNumber::new("123").unwrap();
         let bn2 = BigNumber::new("456").unwrap();
-        let bn3 = bn1 + bn2;
+        let bn3 = bn1.add(&bn2);
         assert_eq!("579", bn3.to_string());
     }
 
@@ -278,7 +274,7 @@ mod tests {
     fn test_big_number_mul() {
         let bn1 = BigNumber::new("123").unwrap();
         let bn2 = BigNumber::new("456").unwrap();
-        let bn3 = bn1 * bn2;
+        let bn3 = bn1.mul(&bn2);
         assert_eq!("56088", bn3.to_string());
     }
 }
