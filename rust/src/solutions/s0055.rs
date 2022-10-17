@@ -1,6 +1,7 @@
 use std::time::Instant;
 
-use crate::utils;
+use crate::utils::big::BigNumber;
+use crate::utils::sequence;
 
 /// Solution for Project Euler problem 55
 ///
@@ -28,15 +29,14 @@ pub fn solve() {
 }
 
 fn is_lychrel(n: u64) -> bool {
-    fn add_reversed(n: Vec<usize>) -> (Vec<usize>, bool) {
-        let mut rev = n.clone();
-        rev.reverse();
-        return (utils::big::sum_of(&n, &rev), true);
+    fn add_reversed(n: BigNumber) -> (BigNumber, bool) {
+        let rev = BigNumber::reverse(&n);
+        return (n.add(&rev), true);
     }
 
     const LIMIT: u64 = 50;
 
-    let mut num = utils::big::to_big(&n.to_string()).unwrap();
+    let mut num = BigNumber::new(&n.to_string()).unwrap();
     let mut count: u64 = 1;
     let mut is_lychrel = true;
     while count < LIMIT {
@@ -46,7 +46,7 @@ fn is_lychrel(n: u64) -> bool {
             break;
         }
 
-        if utils::sequence::is_palindromic(&utils::big::to_string(&num)) {
+        if sequence::is_palindromic(&num.to_string()) {
             is_lychrel = false;
             break;
         }
