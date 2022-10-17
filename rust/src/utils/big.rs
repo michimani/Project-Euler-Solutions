@@ -129,6 +129,14 @@ impl BigNumber {
         return self.0.len();
     }
 
+    pub fn part(&self, from: usize, to: usize) -> Result<Self, &str> {
+        if to < from || to - 1 > self.len() {
+            return Err("invalid index");
+        }
+
+        return Ok(Self::from_vec(self.0[from..to].to_vec()));
+    }
+
     pub fn add(&self, other: &Self) -> Self {
         let mut ans = self.0.clone();
         let mut digit = other.0.len();
@@ -276,5 +284,13 @@ mod tests {
         let bn2 = BigNumber::new("456").unwrap();
         let bn3 = bn1.mul(&bn2);
         assert_eq!("56088", bn3.to_string());
+    }
+
+    #[test]
+    fn test_big_number_part() {
+        let bn = BigNumber::new("987654321").unwrap();
+        assert_eq!("54321", bn.part(0, 5).unwrap().to_string());
+        assert_eq!("76", bn.part(5, 7).unwrap().to_string());
+        assert!(bn.part(0, 100).is_err())
     }
 }
