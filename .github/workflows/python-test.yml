@@ -1,0 +1,34 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.py'
+      - '.github/workflows/python-**'
+  pull_request:
+    paths:
+      - '**.py'
+      - '.github/workflows/python-**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - name: Check Python version
+        run: python --version
+      - name: Install dependencies
+        working-directory: ./python
+        run: pip install -r requirements.lock
+      - name: Lint check
+        working-directory: ./python
+        run: mypy . --check
+      - name: Format check
+        working-directory: ./python
+        run: black --check .
