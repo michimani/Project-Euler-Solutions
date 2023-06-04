@@ -26,7 +26,7 @@ TRIANGLE = [
 # fmt: on
 
 
-def compute():
+def solve():
     max_row = len(TRIANGLE)
     current_row = 0
     idx_choices = (0, 0)
@@ -66,4 +66,4 @@ def get_next_idx_choices(current_idx):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

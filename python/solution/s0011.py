@@ -34,7 +34,7 @@ GRID = [
 # fmt: on
 
 
-def compute():
+def solve():
     product_list = [0]
     try:
         for r in range(0, ROW):
@@ -89,4 +89,4 @@ def compute():
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

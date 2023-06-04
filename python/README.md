@@ -1,6 +1,13 @@
 by Python
 ===
 
+## Setup
+
+```bash
+make setup \
+&& source .venv/bin/activate
+```
+
 ## Solve
 
 ```bash

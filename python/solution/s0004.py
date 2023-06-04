@@ -8,7 +8,7 @@
 DIGIT = 3
 
 
-def compute():
+def solve():
     palindrome_product_list = list()
     for a in range(10 ** (DIGIT - 1), 10**DIGIT):
         for b in range(10 ** (DIGIT - 1), 10**DIGIT):
@@ -24,4 +24,4 @@ def is_palindrome(number):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

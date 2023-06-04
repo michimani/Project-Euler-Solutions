@@ -109,9 +109,9 @@ NUMBER_LIST = [
 ]
 
 
-def compute():
+def solve():
     return str(sum(NUMBER_LIST))[:10]
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

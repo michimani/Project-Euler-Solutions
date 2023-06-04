@@ -6,7 +6,7 @@
 #
 
 
-def compute():
+def solve():
     seq = [1, 2]
     last_num = 0
     seq_idx = 2
@@ -25,4 +25,4 @@ def compute():
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

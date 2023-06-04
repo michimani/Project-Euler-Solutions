@@ -10,7 +10,7 @@ MONTH_DAY_CNT_LIST = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 MONTH_DAY_CNT_LIST_IN_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 
-def compute():
+def solve():
     ans = 0
 
     initial_year = get_all_day_in_a_year(1900, 1)
@@ -64,4 +64,4 @@ def is_leap(year):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

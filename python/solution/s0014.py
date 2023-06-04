@@ -8,7 +8,7 @@
 MAX_NUMBER = 1000000
 
 
-def compute() -> int:
+def solve() -> int:
     checked: dict = {}
     ans_start_num = 0
     max_seq_length = 0
@@ -49,4 +49,4 @@ def get_collatz_sequence_length(start_number, checked):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

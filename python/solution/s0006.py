@@ -9,7 +9,7 @@ FROM_NUM = 1
 TO_NUM = 100
 
 
-def compute():
+def solve():
     sum_of_square = 0
     sum_of_range = 0
     for num in range(FROM_NUM, TO_NUM + 1):
@@ -23,4 +23,4 @@ def compute():
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

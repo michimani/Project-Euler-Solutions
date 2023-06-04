@@ -11,11 +11,11 @@ COL = 20
 ROW = 20
 
 
-def compute():
+def solve():
     return round(
         math.factorial(COL + ROW) / ((math.factorial(COL) * math.factorial(ROW)))
     )
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

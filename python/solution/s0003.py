@@ -6,7 +6,7 @@
 #
 
 
-def compute() -> int:
+def solve() -> int:
     max_num = 600851475143
     quot = max_num
     primes: list[int] = []
@@ -31,4 +31,4 @@ def compute() -> int:
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

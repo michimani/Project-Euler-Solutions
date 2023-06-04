@@ -6,7 +6,7 @@
 #
 
 
-def compute():
+def solve():
     ans = 0
     amicable_number_list = list()
 
@@ -37,4 +37,4 @@ def d(num):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

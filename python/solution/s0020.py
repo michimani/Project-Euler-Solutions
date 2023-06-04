@@ -6,7 +6,7 @@
 #
 
 
-def compute():
+def solve():
     ans = 0
     times = 1
     for n in range(1, 101):
@@ -19,4 +19,4 @@ def compute():
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())
