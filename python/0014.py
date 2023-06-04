@@ -8,8 +8,8 @@
 MAX_NUMBER = 1000000
 
 
-def compute():
-    checked = dict()
+def compute() -> int:
+    checked: dict = {}
     ans_start_num = 0
     max_seq_length = 0
     for start_num in range(1, MAX_NUMBER):

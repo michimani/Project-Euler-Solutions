@@ -6,10 +6,10 @@
 #
 
 
-def compute():
+def compute() -> int:
     max_num = 600851475143
     quot = max_num
-    primes = []
+    primes: list[int] = []
     ans = 0
     for prime_chk in range(2, max_num):
         is_prime = True

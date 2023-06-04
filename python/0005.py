@@ -51,11 +51,11 @@ def get_divisor_list(number):
     return divisor_list
 
 
-def get_prime_list(from_num, to_num):
+def get_prime_list(from_num, to_num) -> list[int]:
     if from_num == 1:
         from_num = 2
 
-    prime_list = list()
+    prime_list: list[int] = []
     for num in range(from_num, to_num + 1):
         is_prime = True
         for prime in prime_list:

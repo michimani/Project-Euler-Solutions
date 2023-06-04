@@ -8,8 +8,8 @@
 TARGET_PRIME_IDX = 10001
 
 
-def compute():
-    prime_list = list()
+def compute() -> int:
+    prime_list: list[int] = []
     prime_cnt = 0
     num = 2
     ans = 2
