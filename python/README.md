@@ -11,11 +11,11 @@ make setup \
 ## Solve
 
 ```bash
-python {solution file name}
+python solve.py {problem_no}
 ```
 
 example
 
 ```bash
-python 0001.py
+python solve.py 1
 ```
