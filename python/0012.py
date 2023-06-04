@@ -8,8 +8,8 @@
 DIVISOR_LIMIT = 500
 
 
-def compute():
-    triangle_list = list()
+def compute() -> int:
+    triangle_list: list[int] = []
     current_divisor_cnt = 0
     triangle = 0
     while current_divisor_cnt < DIVISOR_LIMIT:

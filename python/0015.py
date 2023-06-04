@@ -13,8 +13,8 @@ ROW = 20
 
 def compute():
     return round(
-        math.factorial(COL + ROW) / (
-            (math.factorial(COL) * math.factorial(ROW))))
+        math.factorial(COL + ROW) / ((math.factorial(COL) * math.factorial(ROW)))
+    )
 
 
 if __name__ == "__main__":

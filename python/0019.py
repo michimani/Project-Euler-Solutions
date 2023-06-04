@@ -39,8 +39,8 @@ def get_sunday_cnt(year, all_day):
     return cnt
 
 
-def get_all_day_in_a_year(year, first_day):
-    all_day = list()
+def get_all_day_in_a_year(year, first_day) -> list[int]:
+    all_day: list[int] = []
     day_cnt = sum(MONTH_DAY_CNT_LIST)
     if is_leap(year) is True:
         day_cnt = sum(MONTH_DAY_CNT_LIST_IN_LEAP)
