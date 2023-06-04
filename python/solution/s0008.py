@@ -31,7 +31,7 @@ NUM_SEQUENCE = (
 ADJACENT_CNT = 13
 
 
-def compute():
+def solve():
     last_start_idx = len(NUM_SEQUENCE) - 1 - ADJACENT_CNT
     products_list = list()
     start_idx = 0
@@ -56,4 +56,4 @@ def compute():
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

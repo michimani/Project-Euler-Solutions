@@ -21,7 +21,7 @@ NUM_TO_WORD = {
 }
 
 
-def compute():
+def solve():
     string = ""
     for num in range(1, FOR_NUMBER + 1):
         num_string = convert_number_to_string(num)
@@ -81,4 +81,4 @@ def convert_number_to_string(number):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

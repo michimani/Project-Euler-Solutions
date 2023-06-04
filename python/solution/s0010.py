@@ -9,7 +9,7 @@ import math
 UNTIL = 2000000
 
 
-def compute():
+def solve():
     ans = 2
     num = 3
     while num <= UNTIL:
@@ -27,4 +27,4 @@ def compute():
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

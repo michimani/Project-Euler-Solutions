@@ -8,7 +8,7 @@
 TARGET_PRIME_IDX = 10001
 
 
-def compute() -> int:
+def solve() -> int:
     prime_list: list[int] = []
     prime_cnt = 0
     num = 2
@@ -30,4 +30,4 @@ def compute() -> int:
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

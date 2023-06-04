@@ -8,7 +8,7 @@
 import math
 
 
-def compute():
+def solve():
     is_ok = False
     a = 1
     b = 2
@@ -41,4 +41,4 @@ def is_nature_sqrt(num):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

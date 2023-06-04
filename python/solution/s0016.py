@@ -8,7 +8,7 @@
 EXPONENT = 1000
 
 
-def compute():
+def solve():
     ans = 0
     for digit in list(str(2**EXPONENT)):
         ans = ans + int(digit)
@@ -17,4 +17,4 @@ def compute():
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

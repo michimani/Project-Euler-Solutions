@@ -9,7 +9,7 @@ FROM_NUM = 1
 TO_NUM = 20
 
 
-def compute():
+def solve():
     ans = 1
     checked_number_list = list()
     product_list = list()
@@ -70,4 +70,4 @@ def get_prime_list(from_num, to_num) -> list[int]:
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

@@ -1,14 +1,21 @@
 by Python
 ===
 
+## Setup
+
+```bash
+make setup \
+&& source .venv/bin/activate
+```
+
 ## Solve
 
 ```bash
-python {solution file name}
+python solve.py {problem_no}
 ```
 
 example
 
 ```bash
-python 0001.py
+python solve.py 1
 ```

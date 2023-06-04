@@ -8,7 +8,7 @@
 DIVISOR_LIMIT = 500
 
 
-def compute() -> int:
+def solve() -> int:
     triangle_list: list[int] = []
     current_divisor_cnt = 0
     triangle = 0
@@ -42,4 +42,4 @@ def get_divisor_list(number):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())

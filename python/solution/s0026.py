@@ -8,7 +8,7 @@
 LIMIT_NUM = 1000
 
 
-def compute():
+def solve():
     ans = 1
     tmp_length = 0
     for nature_num in range(1, 1000):
@@ -51,4 +51,4 @@ def get_repeating_part(nature_number):
 
 
 if __name__ == "__main__":
-    print(compute())
+    print(solve())
