@@ -69,5 +69,5 @@ def get_prime_list(from_num, to_num):
     return prime_list
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(compute())

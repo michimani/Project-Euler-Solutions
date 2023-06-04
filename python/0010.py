@@ -5,6 +5,7 @@
 # https://projecteuler.net/problem=10
 #
 import math
+
 UNTIL = 2000000
 
 
@@ -20,7 +21,7 @@ def compute():
         if is_prime is True:
             ans = ans + num
 
-        print('{} %'.format(round((num / UNTIL), 2) * 100))
+        print("{} %".format(round((num / UNTIL), 2) * 100))
         num = num + 2
     return ans
 

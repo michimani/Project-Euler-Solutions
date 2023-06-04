@@ -44,11 +44,11 @@ def get_repeating_part(nature_number):
         remain_list.append(remain)
 
     if remain == 0:
-        return ''
+        return ""
     else:
         first_appear_idx = remain_list.index(remain)
-        return ''.join(disits[first_appear_idx:])
+        return "".join(disits[first_appear_idx:])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(compute())

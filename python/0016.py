@@ -10,7 +10,7 @@ EXPONENT = 1000
 
 def compute():
     ans = 0
-    for digit in list(str(2 ** EXPONENT)):
+    for digit in list(str(2**EXPONENT)):
         ans = ans + int(digit)
 
     return ans

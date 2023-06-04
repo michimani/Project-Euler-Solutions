@@ -14,7 +14,7 @@ def compute():
     b = 2
     c = 3
     max_c = 1000 - a - b
-    sq_list = [num ** 2 for num in range(3, max_c + 1)]
+    sq_list = [num**2 for num in range(3, max_c + 1)]
     for c_sq in sq_list:
         for a_sq in range(1, math.ceil(c_sq / 2)):
             if is_nature_sqrt(a_sq) is True:
@@ -35,7 +35,7 @@ def compute():
 
 def is_nature_sqrt(num):
     if num > 0:
-        return num == math.floor(num**(1 / 2))**2
+        return num == math.floor(num ** (1 / 2)) ** 2
     else:
         return False
 
