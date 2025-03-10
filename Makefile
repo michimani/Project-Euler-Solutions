@@ -1,7 +1,5 @@
 NO?=0
 
-.PHONY: new-python new-go
-
 new-python:
 	python3 python/new_solution.py ${NO}
 
@@ -10,3 +8,6 @@ new-go:
 
 new-rust:
 	cd rust && cargo run --bin new ${NO}
+
+new-java:
+	cd java && java src/New.java ${NO}
