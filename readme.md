@@ -31,6 +31,16 @@ My solutions for [Project Euler](https://projecteuler.net/). ([in Japanese](http
   ```bash
   NO=1 make new-rust
   ```
+  
+### Java
+
+- runtime Java 21
+- create new solution script
+
+  ```bash
+  NO=1 make new-java
+  ```
+
 
 # License
 
